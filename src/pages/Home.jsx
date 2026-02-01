@@ -1,4 +1,4 @@
-import { ArrowRight, Phone, Mail, Shield, Users, FileText, Heart, CheckCircle } from 'lucide-react';
+import { ArrowRight, Phone, Mail, Shield, Users, FileText, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
@@ -40,14 +40,12 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Heart className="w-12 h-12 text-primary" />
-                  </div>
-                  <p className="font-heading text-xl text-text-primary">Every child deserves</p>
-                  <p className="font-heading text-2xl text-primary">the right support</p>
-                </div>
+              <div className="aspect-square max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src="/hero-image.png" 
+                  alt="Parent and child working together on education" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
