@@ -5,7 +5,7 @@ const variants = {
   secondary: 'bg-secondary text-white hover:bg-secondary-light',
   outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white',
   ghost: 'text-primary hover:bg-primary/10',
-  white: 'bg-white text-primary hover:bg-purple-50',
+  white: 'bg-white text-primary hover:bg-cyan-50',
   'outline-white': 'border-2 border-white text-white hover:bg-white/10',
 };
 

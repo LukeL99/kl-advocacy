@@ -83,7 +83,7 @@ export default function Services() {
       <Section bg="dark">
         <div className="text-center">
           <h2 className="font-heading text-3xl text-white mb-4">Not Sure What You Need?</h2>
-          <p className="text-purple-100 mb-8 max-w-xl mx-auto">
+          <p className="text-cyan-100 mb-8 max-w-xl mx-auto">
             Every family's situation is unique. Schedule a free consultation and we'll figure out the best way I can help.
           </p>
           <Button to="/contact" variant="white" size="lg">

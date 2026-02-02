@@ -22,7 +22,7 @@ export function SectionHeader({ title, subtitle, light = false }) {
         {title}
       </h2>
       {subtitle && (
-        <p className={`text-lg max-w-2xl mx-auto ${light ? 'text-purple-100' : 'text-text-muted'}`}>
+        <p className={`text-lg max-w-2xl mx-auto ${light ? 'text-cyan-100' : 'text-text-muted'}`}>
           {subtitle}
         </p>
       )}

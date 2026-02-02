@@ -192,7 +192,7 @@ export default function Home() {
           <h2 className="font-heading text-3xl md:text-4xl text-white mb-6">
             Ready to Advocate for Your Child?
           </h2>
-          <p className="text-purple-100 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-cyan-100 text-lg mb-8 max-w-2xl mx-auto">
             Schedule a free consultation to discuss your situation and how I can help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

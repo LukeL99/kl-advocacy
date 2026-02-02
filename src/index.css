@@ -2,27 +2,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors - Parent Advocacy Palette (Purple/Violet for empowerment) */
-  --color-primary: #7C3AED;
-  --color-primary-light: #A78BFA;
-  --color-primary-dark: #5B21B6;
-  --color-secondary: #0891B2;
-  --color-secondary-light: #22D3EE;
+  /* Colors - Healthcare Palette (matching KL Therapy Services) */
+  --color-primary: #0891B2;
+  --color-primary-light: #22D3EE;
+  --color-primary-dark: #0E7490;
+  --color-secondary: #059669;
+  --color-secondary-light: #10B981;
   --color-accent: #F59E0B;
 
   /* Background colors */
-  --color-bg-primary: #FAF5FF;
+  --color-bg-primary: #ECFEFF;
   --color-bg-secondary: #FFFFFF;
-  --color-bg-muted: #F5F3FF;
+  --color-bg-muted: #F0FDFA;
 
   /* Text colors */
-  --color-text-primary: #2E1065;
-  --color-text-secondary: #5B21B6;
-  --color-text-muted: #6B7280;
+  --color-text-primary: #164E63;
+  --color-text-secondary: #0E7490;
+  --color-text-muted: #67798F;
 
   /* Border colors */
-  --color-border: #DDD6FE;
-  --color-border-muted: #EDE9FE;
+  --color-border: #A5F3FC;
+  --color-border-muted: #E0F2FE;
 
   /* Fonts */
   --font-heading: 'Varela Round', sans-serif;
