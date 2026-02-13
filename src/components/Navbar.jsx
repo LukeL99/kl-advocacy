@@ -24,7 +24,7 @@ export default function Navbar() {
             </div>
             <div>
               <span className="font-heading text-xl text-text-primary">KL Advocacy</span>
-              <span className="hidden sm:block text-xs text-text-muted">IEP Parent Advocate</span>
+              <span className="hidden sm:block text-xs text-text-muted">Educational Advocacy Services</span>
             </div>
           </Link>
 

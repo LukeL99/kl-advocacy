@@ -47,7 +47,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-heading text-text-primary mb-1">Location</h4>
                   <p className="text-text-muted">Richmond, Virginia</p>
-                  <p className="text-sm text-text-muted">Virtual services available nationwide</p>
+                  <p className="text-sm text-text-muted">Virtual consultations available statewide</p>
                 </div>
               </div>
 

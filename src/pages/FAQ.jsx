@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: "What areas do you serve?",
-    answer: "I'm based in Richmond, Virginia and can attend meetings in person throughout central Virginia. For virtual services, I work with families across Virginia, Illinois, Florida, and other states."
+    answer: "I primarily serve families in Virginia, with virtual consultations available statewide. I'm based in Richmond and can attend meetings in person throughout central Virginia."
   },
   {
     question: "How much do your services cost?",
