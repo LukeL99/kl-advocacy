@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     question: "How much do your services cost?",
-    answer: "Services start at $75/hour for consultations, with package options available. IEP review and meeting attendance are priced based on complexity. I offer a free initial consultation to discuss your needs and provide a quote."
+    answer: "I offer a free 15-minute introductory call, individual consultations starting at $150, and full advocacy support packages with custom pricing. I always start with a free consultation to discuss your needs and recommend the best option for your family."
   },
   {
     question: "What should I bring to our first meeting?",
