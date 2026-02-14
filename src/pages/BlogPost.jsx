@@ -3,6 +3,7 @@ import { ArrowLeft, Calendar, Clock, Tag, CheckCircle, Facebook, Twitter, Mail, 
 import { blogPosts } from '../data/blogPosts';
 import Button from '../components/Button';
 import Section from '../components/Section';
+import Comments from '../components/Comments';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -273,6 +274,13 @@ export default function BlogPost() {
             <h3 className="font-heading text-2xl text-text-primary mb-4">Related Posts</h3>
             <p className="text-text-muted">More posts coming soon...</p>
           </div>
+
+          {/* Comments Section */}
+          <Comments 
+            pageUrl={shareUrl}
+            pageIdentifier={post.slug}
+            pageTitle={post.title}
+          />
         </article>
       </Section>
     </>
