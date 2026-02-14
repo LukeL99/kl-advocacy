@@ -73,16 +73,13 @@ export default function BlogPost() {
             </div>
           </div>
 
-          {/* Featured Image / Gradient Hero */}
-          <div className="bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/20 rounded-3xl h-64 md:h-80 flex items-center justify-center mb-8">
-            <div className="text-center px-8">
-              <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Lightbulb className="w-10 h-10 text-primary" />
-              </div>
-              <p className="font-heading text-xl text-text-primary">
-                Expert guidance for your IEP journey
-              </p>
-            </div>
+          {/* Featured Image */}
+          <div className="rounded-3xl overflow-hidden mb-8">
+            <img 
+              src="/images/blog-iep-meeting-prep.png" 
+              alt="Parent preparing for IEP meeting — writing notes at a desk with a laptop and coffee"
+              className="w-full h-64 md:h-80 object-cover"
+            />
           </div>
         </div>
       </Section>

@@ -37,13 +37,13 @@ export default function Blog() {
                     key={post.slug}
                     className="bg-bg-secondary rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col"
                   >
-                    {/* Featured Image / Gradient */}
-                    <div className="bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/20 h-48 flex items-center justify-center">
-                      <div className="text-center px-6">
-                        <p className="font-heading text-lg text-text-primary">
-                          {post.categories[0]}
-                        </p>
-                      </div>
+                    {/* Featured Image */}
+                    <div className="h-48 overflow-hidden">
+                      <img 
+                        src="/images/blog-iep-meeting-prep.png" 
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
 
                     {/* Content */}
