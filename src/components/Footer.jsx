@@ -12,7 +12,7 @@ export default function Footer() {
                 <span className="font-bold text-xl">KL</span>
               </div>
               <div>
-                <span className="font-heading text-xl">KL Advocacy</span>
+                <span className="font-heading text-xl">Next Step Special Education Advocacy</span>
               </div>
             </div>
             <p className="text-cyan-100 text-sm leading-relaxed">
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-cyan-200 text-sm">
-          <p>&copy; {new Date().getFullYear()} KL Advocacy. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Next Step Special Education Advocacy. All rights reserved.</p>
         </div>
       </div>
     </footer>
