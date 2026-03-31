@@ -15,12 +15,13 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
+              <p className="font-heading text-lg text-accent tracking-wider mb-2">Access Educational Advocacy</p>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-primary leading-tight mb-4">
                 Your Child's Education
                 <span className="text-primary"> Deserves an Advocate</span>
               </h1>
-              <p className="text-xl text-text-secondary mb-6 max-w-lg">
-                Expert support for IEPs, 504 plans, and special education services
+              <p className="font-tagline text-xl text-text-secondary mb-6 max-w-lg">
+                Navigating education, together.
               </p>
               <p className="text-lg text-text-muted mb-8 max-w-lg">
                 Navigating IEPs and special education can be overwhelming. 
