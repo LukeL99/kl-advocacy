@@ -24,9 +24,9 @@ export default function Home() {
                 Navigating education, together.
               </p>
               <p className="text-lg text-text-muted mb-8 max-w-lg">
-                Navigating IEPs and special education can be overwhelming. 
-                I help parents understand their rights and ensure their children 
-                receive the services they're entitled to.
+                Navigating IEPs and special education can feel overwhelming. 
+                I work alongside families and school teams to make sure your child 
+                gets the support they need—with confidence, not conflict.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button to="/services" size="lg">
@@ -57,7 +57,7 @@ export default function Home() {
       <Section bg="secondary">
         <SectionHeader
           title="How I Support Families"
-          subtitle="From understanding your rights to reviewing IEP documents, preparing for meetings, attending with you (virtually or in-person), and navigating disputes—I'm here to support you through every step of the special education process."
+          subtitle="From understanding your rights to reviewing IEP documents, preparing for meetings, attending with you (virtually or in-person), and I'm here to guide you through every step of the special education process."
         />
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -115,7 +115,7 @@ export default function Home() {
             </div>
             <h3 className="font-heading text-xl text-text-primary mb-3">Rights Education</h3>
             <p className="text-text-muted text-sm mb-4 leading-relaxed">
-              Learn your rights under IDEA and Section 504. Knowledge is power when advocating for your child.
+              Learn your rights under IDEA and Section 504. When you understand how the process works, you can participate with confidence.
             </p>
             <ul className="space-y-2">
               <li className="flex items-start gap-2 text-sm text-text-muted">
@@ -144,8 +144,8 @@ export default function Home() {
             </h2>
             <p className="text-text-muted mb-8">
               As a licensed Speech-Language Pathologist with 10+ years of experience in schools, 
-              I understand both sides of the IEP table. I know what schools can provide—and 
-              what they sometimes overlook.
+              I understand how the IEP process works from the inside. I use that knowledge to help 
+              families and schools work together more effectively.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-4">
@@ -171,8 +171,8 @@ export default function Home() {
                   <CheckCircle className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-heading text-text-primary mb-1">Parent-First Approach</h4>
-                  <p className="text-sm text-text-muted">I'm on your team, advocating for your child's best interests.</p>
+                  <h4 className="font-heading text-text-primary mb-1">Collaborative Approach</h4>
+                  <p className="text-sm text-text-muted">I believe the best outcomes happen when families and schools work together. I help bridge that gap.</p>
                 </div>
               </div>
             </div>
@@ -184,10 +184,10 @@ export default function Home() {
       <Section bg="dark">
         <div className="text-center">
           <h2 className="font-heading text-3xl md:text-4xl text-white mb-6">
-            Ready to Advocate for Your Child?
+            Ready to Take the Next Step?
           </h2>
           <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
-            Schedule a free consultation to discuss your situation and how I can help.
+            Every family's journey is different. Let's talk about yours and find the best path forward—together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="https://docs.google.com/forms/d/e/1FAIpQLSeCZBm-Vppz8ReNgpLqQU9xA9kAUPihWj_-2gqSQ1AbtUCrCg/viewform?usp=header" target="_blank" rel="noopener noreferrer" variant="white" size="lg">

@@ -18,13 +18,13 @@ export default function About() {
             </p>
             <p className="text-text-muted mb-6">
               After years of sitting on the school side of IEP tables, I realized many 
-              parents didn't fully understand their rights or how to advocate for their 
-              children effectively. That's why I started Access Educational Advocacy.
+              parents felt lost in the process—not because they didn't care, but because 
+              the system can be confusing. That's why I started Access Educational Advocacy.
             </p>
             <p className="text-text-muted">
-              Now, I use my clinical expertise and system knowledge to help parents 
-              navigate special education, understand their rights, and ensure their 
-              children receive the services they deserve.
+              Now, I use my clinical expertise and understanding of school systems to help 
+              families navigate special education with clarity and confidence—working 
+              collaboratively with schools to get the best outcomes for every child.
             </p>
           </div>
           <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-8 flex items-center justify-center aspect-square max-w-md mx-auto">
@@ -86,8 +86,8 @@ export default function About() {
             My Philosophy
           </h2>
           <blockquote className="text-xl text-text-muted italic mb-8">
-            "Every parent is their child's first and best advocate. My job is to give 
-            you the knowledge, confidence, and support to make your voice heard."
+            "Every parent wants the best for their child. My job is to give 
+            you the knowledge, confidence, and support to be an effective partner in your child's education."
           </blockquote>
           <Button to="/contact" size="lg">
             Let's Work Together

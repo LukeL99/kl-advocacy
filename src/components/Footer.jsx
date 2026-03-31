@@ -10,7 +10,7 @@ export default function Footer() {
             <img src="/logo.png" alt="Access Educational Advocacy" className="h-16 w-auto mb-4 brightness-0 invert" />
             <p className="font-tagline text-blue-200 text-sm mb-3">Navigating education, together.</p>
             <p className="text-blue-100 text-sm leading-relaxed">
-              Empowering parents to advocate for their children's educational rights. 
+              Helping families access their child's education with confidence and clarity. 
               Your child deserves the best possible education.
             </p>
           </div>

@@ -22,8 +22,8 @@ const services = [
   {
     icon: Users,
     title: 'Full Advocacy Support',
-    description: 'Ongoing partnership throughout your child\'s special education journey. Ideal for families navigating complex situations, disputes, or needing consistent support.',
-    features: ['Everything in Individual Consultation, plus:', 'IEP meeting attendance (virtual or in-person)', 'Communication with school teams', 'Document drafting and review', 'Dispute resolution support', 'Ongoing email/phone support between meetings'],
+    description: 'Ongoing partnership throughout your child\'s special education journey. Ideal for families navigating complex situations or needing ongoing guidance and support.',
+    features: ['Everything in Individual Consultation, plus:', 'IEP meeting attendance (virtual or in-person)', 'Communication with school teams', 'Document drafting and review', 'Support through disagreements or concerns', 'Ongoing email/phone support between meetings'],
     price: 'Custom packages available - Contact for pricing',
     cta: 'Learn More',
   },

@@ -10,11 +10,11 @@ const faqs = [
   },
   {
     question: "Do I really need an advocate?",
-    answer: "Not every family needs one, but having an advocate can be incredibly helpful if you feel overwhelmed, unheard, or unsure about the IEP process. I'm especially helpful if you're new to IEPs, preparing for a contentious meeting, or feel like your child isn't getting appropriate services."
+    answer: "Not every family needs one, but having an advocate can be incredibly helpful if you feel overwhelmed, unheard, or unsure about the IEP process. I'm especially helpful if you're new to IEPs, preparing for a challenging meeting, or feel like your child isn't getting appropriate services."
   },
   {
     question: "What's the difference between an advocate and an attorney?",
-    answer: "An attorney can represent you in due process hearings and legal proceedings. As an advocate, I provide educational support, meeting attendance, and help you understand your rights—but I cannot provide legal representation. For most families, an advocate is sufficient; attorneys are typically needed only for formal disputes."
+    answer: "An attorney can represent you in due process hearings and legal proceedings. As an advocate, I provide educational support, meeting attendance, and help you understand your rights—but I cannot provide legal representation. For most families, an advocate is sufficient; attorneys are typically needed only for formal legal proceedings."
   },
   {
     question: "Can you attend meetings virtually?",
