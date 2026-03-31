@@ -1,32 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Quicksand:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* Colors - Healthcare Palette (matching KL Therapy Services) */
-  --color-primary: #0891B2;
-  --color-primary-light: #22D3EE;
-  --color-primary-dark: #0E7490;
-  --color-secondary: #059669;
-  --color-secondary-light: #10B981;
-  --color-accent: #F59E0B;
+  /* Colors - Access Educational Advocacy Brand */
+  --color-primary: #2C4A6E;
+  --color-primary-light: #5B7FA6;
+  --color-primary-dark: #1E3550;
+  --color-secondary: #5B7FA6;
+  --color-secondary-light: #8FA8C4;
+  --color-accent: #C4956A;
 
   /* Background colors */
-  --color-bg-primary: #ECFEFF;
+  --color-bg-primary: #FAF7F2;
   --color-bg-secondary: #FFFFFF;
-  --color-bg-muted: #F0FDFA;
+  --color-bg-muted: #EEF4FA;
 
   /* Text colors */
-  --color-text-primary: #164E63;
-  --color-text-secondary: #0E7490;
-  --color-text-muted: #67798F;
+  --color-text-primary: #2C4A6E;
+  --color-text-secondary: #5B7FA6;
+  --color-text-muted: #6B7B8F;
 
   /* Border colors */
-  --color-border: #A5F3FC;
-  --color-border-muted: #E0F2FE;
+  --color-border: #8FA8C4;
+  --color-border-muted: #EEF4FA;
 
   /* Fonts */
-  --font-heading: 'Varela Round', sans-serif;
-  --font-body: 'Nunito Sans', sans-serif;
+  --font-heading: 'Josefin Sans', sans-serif;
+  --font-body: 'Quicksand', sans-serif;
+}
+
+/* Brand typography utilities */
+.font-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.font-tagline {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-style: italic;
 }
 
 html {

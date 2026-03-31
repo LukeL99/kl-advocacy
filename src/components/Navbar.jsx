@@ -16,16 +16,13 @@ export default function Navbar() {
   const location = useLocation();
 
   return (
-    <nav className="bg-bg-secondary/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border-muted">
+    <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-xl">AE</span>
-            </div>
-            <div>
-              <span className="font-heading text-xl text-text-primary">Access Educational Advocacy</span>
-              <span className="hidden sm:block text-xs text-text-muted">Educational Advocacy Services</span>
+            <img src="/logo.png" alt="Access Educational Advocacy" className="h-14 w-auto" />
+            <div className="hidden sm:block">
+              <span className="font-tagline text-sm text-text-muted">Navigating education, together.</span>
             </div>
           </Link>
 
