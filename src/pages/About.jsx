@@ -19,7 +19,7 @@ export default function About() {
             <p className="text-text-muted mb-6">
               After years of sitting on the school side of IEP tables, I realized many 
               parents didn't fully understand their rights or how to advocate for their 
-              children effectively. That's why I started Next Step Special Education Advocacy.
+              children effectively. That's why I started Access Educational Advocacy.
             </p>
             <p className="text-text-muted">
               Now, I use my clinical expertise and system knowledge to help parents 

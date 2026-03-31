@@ -21,10 +21,10 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center gap-3">
             <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-xl">KL</span>
+              <span className="text-white font-bold text-xl">AE</span>
             </div>
             <div>
-              <span className="font-heading text-xl text-text-primary">Next Step Special Education Advocacy</span>
+              <span className="font-heading text-xl text-text-primary">Access Educational Advocacy</span>
               <span className="hidden sm:block text-xs text-text-muted">Educational Advocacy Services</span>
             </div>
           </Link>

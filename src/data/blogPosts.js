@@ -3,7 +3,7 @@ export const blogPosts = [
     slug: 'preparing-for-first-iep-meeting',
     title: 'Preparing for Your First IEP Meeting: 4 Things to Do Before You Walk in the Room',
     excerpt: "Nervous about your first IEP meeting? A speech therapist and educational advocate shares exactly what to do before the meeting so you can show up confident and prepared.",
-    author: 'Karlie, SLP and Educational Advocate at Next Step Special Education Advocacy',
+    author: 'Karlie, SLP and Educational Advocate at Access Educational Advocacy',
     date: '2026-02-13',
     categories: ['IEP Process', 'Parent Resources'],
     tags: ['first IEP meeting', 'IEP preparation', 'special education', 'parent advocacy'],
