@@ -121,12 +121,12 @@ export const blogPosts = [
             ],
           },
           cta: {
-            text: 'Ready to feel even more confident? If your IEP meeting is coming up and you\'d like personalized support, let\'s talk. I offer free 30-minute consultations where we\'ll review your specific situation and create a game plan together. As both a speech-language pathologist and an educational advocate, I\'ve been on both sides of the IEP table. I know what the team is looking for, what questions to ask, and how to advocate effectively without creating conflict.',
+            text: 'Ready to feel even more confident? If your IEP meeting is coming up and you\'d like personalized support, let\'s talk. I offer free 15-minute consultations where we\'ll review your specific situation and create a game plan together. As both a speech-language pathologist and an educational advocate, I\'ve been on both sides of the IEP table. I know what the team is looking for, what questions to ask, and how to advocate effectively without creating conflict.',
             buttonText: 'Schedule Your Free Consultation',
             buttonUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeCZBm-Vppz8ReNgpLqQU9xA9kAUPihWj_-2gqSQ1AbtUCrCg/viewform?usp=header',
           },
           closing: [
-            'In my next post, I\'ll walk you through what actually happens during the IEP meeting itself—step by step, so there are no surprises.',
+            'In my next post, I\'ll walk you through what actually happens during the IEP meeting itself - step by step, so there are no surprises.',
           ],
         },
       ],

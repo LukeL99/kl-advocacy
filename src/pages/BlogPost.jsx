@@ -267,14 +267,13 @@ export default function BlogPost() {
           </div>
 
           {/* Parent Education CTA */}
-          <div className="mt-16 pt-8 border-t border-border-muted">
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8 text-center">
-              <BookOpen className="w-10 h-10 text-primary mx-auto mb-4" />
-              <p className="text-lg text-text-muted mb-6">
-                Want to dig deeper into this topic with a personalized 30-minute session?
-              </p>
+          <div className="mt-12">
+            <p className="text-lg text-text-muted mb-6 leading-relaxed">
+              Want to understand the IEP process before your meeting? Check out our Parent Education sessions - 30-minute topic-specific consultations designed to give you the knowledge you need, at your own pace, before committing to full advocacy support.
+            </p>
+            <div className="text-center">
               <Button to="/parent-education" size="lg">
-                Book a Parent Education Session
+                Explore Parent Education Sessions
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
