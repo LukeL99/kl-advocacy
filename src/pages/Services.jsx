@@ -34,7 +34,7 @@ const services = [
     description: "Walking into an IEP, eligibility, or transition meeting alone can feel overwhelming. I\u2019ll be there with you\u2014either virtually or in person\u2014so you never have to navigate it by yourself.",
     features: [
       'Virtual meetings starting at $150',
-      'In-person meetings available in Central VA',
+      'In-person meetings available in Central Virginia',
       'All fees include preparation time',
     ],
     price: null,

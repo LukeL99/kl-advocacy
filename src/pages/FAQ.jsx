@@ -18,11 +18,11 @@ const faqs = [
   },
   {
     question: "Can you attend meetings virtually?",
-    answer: "Yes! I offer both in-person and virtual meeting attendance. Virtual attendance works great and allows me to support families across Virginia and beyond."
+    answer: "Yes! I offer both in-person and virtual meeting attendance. Virtual attendance works great and allows me to support families nationwide. In-person meeting attendance is available in Central Virginia."
   },
   {
     question: "What areas do you serve?",
-    answer: "I primarily serve families in Virginia, with virtual consultations available statewide. I'm based in Richmond and can attend meetings in person throughout central Virginia."
+    answer: "I serve families virtually nationwide, with specialized expertise in Virginia and Illinois special education law and practice. In-person services are available in Central Virginia."
   },
   {
     question: "How much do your services cost?",

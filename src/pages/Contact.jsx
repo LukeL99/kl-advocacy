@@ -45,9 +45,9 @@ export default function Contact() {
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-heading text-text-primary mb-1">Location</h4>
-                  <p className="text-text-muted">Richmond, Virginia</p>
-                  <p className="text-sm text-text-muted">Virtual consultations available statewide</p>
+                  <h4 className="font-heading text-text-primary mb-1">Service Area</h4>
+                  <p className="text-text-muted">Serving families virtually nationwide</p>
+                  <p className="text-sm text-text-muted">Specialized expertise in Virginia &amp; Illinois. In-person services in Central Virginia.</p>
                 </div>
               </div>
 

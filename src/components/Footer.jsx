@@ -38,7 +38,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <MapPin className="w-4 h-4 text-blue-200" />
-                <span className="text-blue-100">Richmond, Virginia</span>
+                <span className="text-blue-100">Serving families virtually nationwide. In-person in Central Virginia.</span>
               </li>
             </ul>
           </div>
