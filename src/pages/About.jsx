@@ -100,7 +100,7 @@ export default function About() {
           <blockquote className="text-xl text-text-muted italic mb-8">
             &ldquo;Every parent wants the best for their child. My job is to give 
             you the knowledge, confidence, and support to be an effective partner 
-            in your child&apos;s education &mdash; not an adversary, a partner.&rdquo;
+            in your child&apos;s education - not an adversary, a partner.&rdquo;
           </blockquote>
           <Button to="/contact" size="lg">
             Let&apos;s Work Together
