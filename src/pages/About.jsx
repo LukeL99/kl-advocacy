@@ -12,28 +12,40 @@ export default function About() {
               Meet Karlie
             </h1>
             <p className="text-lg text-text-muted mb-6">
-              I'm Karlie Libraro, M.S., CCC-SLP—a licensed Speech-Language Pathologist 
-              with extensive experience working in school settings. I've seen firsthand 
-              how challenging the IEP process can be for families.
+              I&apos;m Karlie Libraro, M.S., CCC-SLP &mdash; a licensed Speech-Language Pathologist 
+              with over a decade of experience working across school-based, outpatient, and private 
+              practice settings in Virginia and Illinois.
             </p>
             <p className="text-text-muted mb-6">
-              After years of sitting on the school side of IEP tables, I realized many 
-              parents felt lost in the process—not because they didn't care, but because 
-              the system can be confusing. That's why I started Access Educational Advocacy.
+              After years of sitting on the school side of the IEP table, I saw something that 
+              stayed with me: parents who cared deeply about their child&apos;s education but felt 
+              lost, unheard, or overwhelmed by a system that wasn&apos;t designed to be easy to 
+              navigate. Not because they weren&apos;t asking the right questions &mdash; but because the 
+              disconnect between families and school districts is real, and it runs deep.
+            </p>
+            <p className="text-text-muted mb-6 font-semibold">
+              I started Access Educational Advocacy because I want to be the bridge.
+            </p>
+            <p className="text-text-muted mb-6">
+              I know how schools think, how IEP teams operate, and what the law requires. I also 
+              understand the medical and clinical side &mdash; what therapists see in outpatient settings 
+              versus what schools are required to provide, and why those two worlds so rarely speak 
+              the same language. My goal is to bring everyone to the same table &mdash; not to fight, not 
+              to escalate, but to make sure every family walks in informed, confident, and ready to 
+              advocate for their child.
             </p>
             <p className="text-text-muted">
-              Now, I use my clinical expertise and understanding of school systems to help 
-              families navigate special education with clarity and confidence—working 
-              collaboratively with schools to get the best outcomes for every child.
+              Because every student deserves access to their education. And every parent deserves 
+              to understand how to get it for them.
             </p>
           </div>
-          <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-8 flex items-center justify-center aspect-square max-w-md mx-auto">
-            <div className="text-center">
-              <div className="w-32 h-32 bg-primary/30 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Heart className="w-16 h-16 text-primary" />
-              </div>
-              <p className="font-heading text-2xl text-text-primary">Karlie Libraro</p>
-              <p className="text-text-muted">M.S., CCC-SLP</p>
+          <div className="flex justify-center">
+            <div className="aspect-square max-w-md w-full rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src="/karlie-headshot.png" 
+                alt="Karlie Libraro, M.S., CCC-SLP" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -67,7 +79,7 @@ export default function About() {
               <Briefcase className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-heading text-lg text-text-primary mb-2">Experience</h3>
-            <p className="text-sm text-text-muted">School-based therapy & IEP teams</p>
+            <p className="text-sm text-text-muted">10+ years in school, outpatient & private practice</p>
           </div>
 
           <div className="bg-bg-secondary rounded-2xl p-6 text-center">
@@ -86,11 +98,12 @@ export default function About() {
             My Philosophy
           </h2>
           <blockquote className="text-xl text-text-muted italic mb-8">
-            "Every parent wants the best for their child. My job is to give 
-            you the knowledge, confidence, and support to be an effective partner in your child's education."
+            &ldquo;Every parent wants the best for their child. My job is to give 
+            you the knowledge, confidence, and support to be an effective partner 
+            in your child&apos;s education &mdash; not an adversary, a partner.&rdquo;
           </blockquote>
           <Button to="/contact" size="lg">
-            Let's Work Together
+            Let&apos;s Work Together
             <ArrowRight className="w-5 h-5" />
           </Button>
         </div>
