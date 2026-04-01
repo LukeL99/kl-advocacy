@@ -182,7 +182,7 @@ export default function Home() {
             Ready to Take the Next Step?
           </h2>
           <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
-            Every family's journey is different. Let's talk about yours and find the best path forward—together.
+            Every family's journey is different. Let's talk about yours and find the best path forward - together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="https://docs.google.com/forms/d/e/1FAIpQLSeCZBm-Vppz8ReNgpLqQU9xA9kAUPihWj_-2gqSQ1AbtUCrCg/viewform?usp=header" target="_blank" rel="noopener noreferrer" variant="white" size="lg">
