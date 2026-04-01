@@ -15,7 +15,7 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="/logo.png" alt="Access Educational Advocacy" className="h-28 md:h-36 w-auto mb-6" />
+              <img src="/logo.png" alt="Access Educational Advocacy" className="w-full max-w-md mb-6" />
               <p className="font-heading text-lg md:text-xl text-accent tracking-wider mb-4">
                 Your child's education deserves an advocate
               </p>
