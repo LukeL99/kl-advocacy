@@ -7,7 +7,7 @@ const bgClasses = {
 
 export default function Section({ children, bg = 'primary', className = '' }) {
   return (
-    <section className={`py-16 md:py-24 ${bgClasses[bg]} ${className}`}>
+    <section className={`py-10 md:py-16 ${bgClasses[bg]} ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {children}
       </div>
