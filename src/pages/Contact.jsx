@@ -40,27 +40,22 @@ export default function Contact() {
 
     const formData = new FormData(e.target);
 
+    // Map the interest value to a readable label for the email
+    const interestLabel = SERVICE_OPTIONS.find(o => o.value === formData.get('interest'))?.label || 'Not specified';
+    formData.set('_interest_label', interestLabel);
+
     try {
-      // TODO: Replace with real form endpoint (Formspree, serverless function, etc.)
-      // For now, construct a mailto fallback
-      const name = formData.get('firstName') + ' ' + formData.get('lastName');
-      const email = formData.get('email');
-      const phone = formData.get('phone') || 'Not provided';
-      const service = SERVICE_OPTIONS.find(o => o.value === formData.get('interest'))?.label || 'Not specified';
-      const message = formData.get('message') || 'No additional details';
+      const response = await fetch('https://formsubmit.co/ajax/myaccessadvocacy@gmail.com', {
+        method: 'POST',
+        body: formData,
+      });
 
-      const subject = encodeURIComponent(`New Inquiry from ${name} - ${service}`);
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nInterested In: ${service}\n\nMessage:\n${message}`
-      );
-
-      window.location.href = `mailto:myaccessadvocacy@gmail.com?subject=${subject}&body=${body}`;
-
-      // Show success after a brief delay (mailto will open email client)
-      setTimeout(() => {
+      if (response.ok) {
         setLoading(false);
         setSubmitted(true);
-      }, 500);
+      } else {
+        throw new Error('Form submission failed');
+      }
     } catch {
       setLoading(false);
       setError('Something went wrong. Please try again or email us directly at myaccessadvocacy@gmail.com.');
@@ -141,6 +136,8 @@ export default function Contact() {
               <>
                 <h3 className="font-heading text-xl text-text-primary mb-6">How Can I Help?</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <input type="hidden" name="_subject" value="New Inquiry from Access Educational Advocacy Website" />
+                  <input type="hidden" name="_template" value="table" />
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-text-primary mb-2">First Name *</label>
