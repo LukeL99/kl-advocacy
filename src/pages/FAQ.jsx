@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: "What's the difference between an advocate and an attorney?",
-    answer: "An attorney can represent you in due process hearings and legal proceedings. As an advocate, I provide educational support, meeting attendance, and help you understand your rights—but I cannot provide legal representation. For most families, an advocate is sufficient; attorneys are typically needed only for formal legal proceedings."
+    answer: "An attorney can represent you in due process hearings and legal proceedings. As an advocate, I provide educational support, meeting attendance, and help you understand your rights - but I cannot provide legal representation. For most families, an advocate is sufficient; attorneys are typically needed only for formal legal proceedings."
   },
   {
     question: "Can you attend meetings virtually?",
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     question: "How much do your services cost?",
-    answer: "I offer a free 15-minute introductory call, individual consultations starting at $150, and full advocacy support packages with custom pricing. I always start with a free consultation to discuss your needs and recommend the best option for your family."
+    answer: "Parent Education sessions start at $65 for 30 minutes, and individual consultations start at $125 for 60 minutes. I also offer support packages that bundle services together. Download my full pricing guide on the Services page for a complete breakdown."
   },
   {
     question: "What should I bring to our first meeting?",
