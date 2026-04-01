@@ -18,45 +18,45 @@ export default function Navbar() {
   return (
     <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center">
-            <img src="/logo-vertical.png" alt="Access Educational Advocacy" className="h-16 w-auto" />
+        {/* Logo centered on top */}
+        <div className="flex justify-center pt-3 pb-2">
+          <Link to="/">
+            <img src="/logo-vertical.png" alt="Access Educational Advocacy" className="h-24 md:h-28 w-auto" />
           </Link>
-
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === link.path
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-text-secondary hover:bg-primary/5 hover:text-primary'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-
-          <div className="hidden lg:flex items-center">
-            <a
-              href="tel:804-420-2273"
-              className="flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-full font-medium text-sm hover:bg-primary-dark transition-colors duration-200"
-            >
-              <Phone className="w-4 h-4" />
-              <span>(804) 420-2273</span>
-            </a>
-          </div>
-
+          {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg text-text-secondary hover:bg-primary/5"
+            className="lg:hidden absolute right-4 top-6 p-2 rounded-lg text-text-secondary hover:bg-primary/5"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
+        {/* Nav links spread across below logo */}
+        <div className="hidden lg:flex items-center justify-center gap-6 pb-3">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-colors duration-200 ${
+                location.pathname === link.path
+                  ? 'bg-primary/10 text-primary'
+                  : 'text-text-secondary hover:bg-primary/5 hover:text-primary'
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <a
+            href="tel:804-420-2273"
+            className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full font-medium text-sm hover:bg-primary-dark transition-colors duration-200"
+          >
+            <Phone className="w-4 h-4" />
+            <span>(804) 420-2273</span>
+          </a>
+        </div>
+
+        {/* Mobile menu */}
         {isOpen && (
           <div className="lg:hidden py-4 border-t border-border-muted">
             <div className="flex flex-col gap-1">
