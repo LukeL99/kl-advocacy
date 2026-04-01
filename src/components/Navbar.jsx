@@ -34,23 +34,27 @@ export default function Navbar() {
         </div>
 
         {/* Nav links spread across below logo */}
-        <div className="hidden lg:flex items-center justify-center gap-6 pb-3">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-colors duration-200 ${
-                location.pathname === link.path
-                  ? 'bg-primary/10 text-primary'
-                  : 'text-text-secondary hover:bg-primary/5 hover:text-primary'
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+        <div className="hidden lg:flex items-center justify-center pb-3">
+          <div className="flex items-center border border-primary/30 rounded-full overflow-hidden">
+            {navLinks.map((link, i) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`px-5 py-2.5 text-sm font-medium tracking-wide transition-colors duration-200 ${
+                  i > 0 ? 'border-l border-primary/30' : ''
+                } ${
+                  location.pathname === link.path
+                    ? 'bg-primary text-white'
+                    : 'text-primary hover:bg-primary/10'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
           <a
             href="tel:804-420-2273"
-            className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full font-medium text-sm hover:bg-primary-dark transition-colors duration-200"
+            className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-medium text-sm hover:bg-primary-dark transition-colors duration-200 ml-4"
           >
             <Phone className="w-4 h-4" />
             <span>(804) 420-2273</span>
