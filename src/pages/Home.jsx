@@ -12,7 +12,7 @@ export default function Home() {
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="font-heading text-3xl md:text-4xl text-text-primary leading-snug mb-6">

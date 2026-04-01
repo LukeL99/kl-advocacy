@@ -47,6 +47,7 @@ export default function Footer() {
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-blue-200 text-sm">
           <p>&copy; {new Date().getFullYear()} Access Educational Advocacy. All rights reserved.</p>
+          <p className="text-blue-300/50 text-xs mt-2">Access Educational Advocacy is a DBA of KL Therapy Services, PLLC</p>
         </div>
       </div>
     </footer>
