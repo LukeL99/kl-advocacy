@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Quicksand:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Quicksand:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -25,14 +25,13 @@
   --color-border-muted: #EEF4FA;
 
   /* Fonts */
-  --font-heading: 'Josefin Sans', sans-serif;
+  --font-heading: 'Ubuntu', sans-serif;
   --font-body: 'Quicksand', sans-serif;
 }
 
 /* Brand typography utilities */
 .font-heading {
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.01em;
 }
 
 .font-tagline {
