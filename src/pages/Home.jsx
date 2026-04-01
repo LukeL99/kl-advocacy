@@ -15,11 +15,12 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="font-heading text-lg text-accent tracking-wider mb-2">Access Educational Advocacy</p>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-primary leading-tight mb-4">
-                Your Child's Education
-                <span className="text-primary"> Deserves an Advocate</span>
+                Access Educational Advocacy
               </h1>
+              <p className="font-heading text-lg md:text-xl text-accent tracking-wider mb-4">
+                Your child's education deserves an advocate
+              </p>
               <p className="font-tagline text-xl text-text-secondary mb-6 max-w-lg">
                 Navigating education, together.
               </p>
