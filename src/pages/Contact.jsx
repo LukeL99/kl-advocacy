@@ -14,8 +14,8 @@ export default function Contact() {
           <div>
             <h3 className="font-heading text-2xl text-text-primary mb-6">Free Consultation</h3>
             <p className="text-text-muted mb-8">
-              Every family's situation is unique. Schedule a free 20-minute consultation 
-              to discuss your needs and learn how I can help. No pressure, no obligation—just 
+              Every family's situation is unique. Schedule a free 15-minute consultation 
+              to discuss your needs and learn how I can help. No pressure, no obligation - just 
               a conversation about your child's education.
             </p>
 
