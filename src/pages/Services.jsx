@@ -7,7 +7,7 @@ const services = [
   {
     icon: Phone,
     title: 'Free 15-Minute Consultation',
-    description: "Not sure where to start? Let\u2019s talk. This free call is your chance to share what\u2019s going on, ask questions, and find out if we\u2019re a good fit\u2014with no pressure or commitment.",
+    description: "Not sure where to start? Let\u2019s talk. This free call is your chance to share what\u2019s going on, ask questions, and find out if we\u2019re a good fit - with no pressure or commitment.",
     features: [
       'Initial situation assessment',
       'Answer your immediate questions',
@@ -33,7 +33,7 @@ const services = [
   {
     icon: Users,
     title: 'Meeting Attendance',
-    description: "Walking into an IEP, eligibility, or transition meeting alone can feel overwhelming. I\u2019ll be there with you\u2014either virtually or in person\u2014so you never have to navigate it by yourself.",
+    description: "Walking into an IEP, eligibility, or transition meeting alone can feel overwhelming. I\u2019ll be there with you - either virtually or in person - so you never have to navigate it by yourself.",
     features: [
       'Virtual meetings starting at $150',
       'In-person meetings available in Central Virginia',
@@ -48,10 +48,10 @@ const services = [
     title: 'Support Packages',
     description: 'Need more than one service? Our packages bundle consultations, document reviews, and meeting attendance together so you get more support for less.',
     features: [
-      'Getting Started \u2014 $225',
-      'Meeting Ready \u2014 $300',
-      'Eligibility \u2014 $475',
-      'Full Support \u2014 starting at $650',
+      'Getting Started - $225',
+      'Meeting Ready - $300',
+      'Eligibility - $475',
+      'Full Support - starting at $650',
     ],
     price: null,
     cta: 'View Packages',
