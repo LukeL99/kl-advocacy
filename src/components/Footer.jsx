@@ -34,7 +34,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail className="w-4 h-4 text-blue-200" />
-                <a href="mailto:info@kladvocacy.com" className="text-blue-100 hover:text-white">info@kladvocacy.com</a>
+                <a href="mailto:myaccessadvocacy@gmail.com" className="text-blue-100 hover:text-white">myaccessadvocacy@gmail.com</a>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <MapPin className="w-4 h-4 text-blue-200" />
