@@ -15,7 +15,7 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-primary leading-tight mb-6">
+              <h1 className="font-heading text-2xl md:text-3xl text-text-primary leading-snug mb-6">
                 Every student deserves access to their education.
               </h1>
               <p className="text-lg text-text-muted mb-8 max-w-lg">
