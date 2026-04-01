@@ -12,7 +12,7 @@ export default function About() {
               Meet Karlie
             </h1>
             <p className="text-lg text-text-muted mb-6">
-              I&apos;m Karlie Libraro, M.S., CCC-SLP &mdash; a licensed Speech-Language Pathologist 
+              I&apos;m Karlie Libraro, M.S., CCC-SLP - a licensed Speech-Language Pathologist 
               with over a decade of experience working across school-based, outpatient, and private 
               practice settings in Virginia and Illinois.
             </p>
@@ -20,7 +20,7 @@ export default function About() {
               After years of sitting on the school side of the IEP table, I saw something that 
               stayed with me: parents who cared deeply about their child&apos;s education but felt 
               lost, unheard, or overwhelmed by a system that wasn&apos;t designed to be easy to 
-              navigate. Not because they weren&apos;t asking the right questions &mdash; but because the 
+              navigate. Not because they weren&apos;t asking the right questions - but because the 
               disconnect between families and school districts is real, and it runs deep.
             </p>
             <p className="text-text-muted mb-6 font-semibold">
@@ -28,9 +28,9 @@ export default function About() {
             </p>
             <p className="text-text-muted mb-6">
               I know how schools think, how IEP teams operate, and what the law requires. I also 
-              understand the medical and clinical side &mdash; what therapists see in outpatient settings 
+              understand the medical and clinical side - what therapists see in outpatient settings 
               versus what schools are required to provide, and why those two worlds so rarely speak 
-              the same language. My goal is to bring everyone to the same table &mdash; not to fight, not 
+              the same language. My goal is to bring everyone to the same table - not to fight, not 
               to escalate, but to make sure every family walks in informed, confident, and ready to 
               advocate for their child.
             </p>

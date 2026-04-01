@@ -21,7 +21,7 @@ export default function Home() {
               <p className="text-lg text-text-muted mb-8 max-w-lg">
                 Navigating IEPs and special education can feel overwhelming. 
                 I work alongside families and school teams to make sure your child 
-                gets the support they need—with confidence, not conflict.
+                gets the support they need - with confidence, not conflict.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button to="/services" size="lg">

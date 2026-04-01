@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     question: "What should I bring to our first meeting?",
-    answer: "Bring any IEP documents, evaluation reports, and progress reports you have. It's also helpful to write down your main concerns and questions. Don't worry if you don't have everything—we'll work with what you have."
+    answer: "Bring any IEP documents, evaluation reports, and progress reports you have. It's also helpful to write down your main concerns and questions. Don't worry if you don't have everything - we'll work with what you have."
   },
   {
     question: "Can you help with 504 plans too?",
