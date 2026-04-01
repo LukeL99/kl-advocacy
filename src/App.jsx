@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import About from './pages/About';
 import FAQ from './pages/FAQ';
+import ParentEducation from './pages/ParentEducation';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -28,6 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/parent-education" element={<ParentEducation />} />
             <Route path="/about" element={<About />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/blog" element={<Blog />} />

@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, Clock, Tag, CheckCircle, Facebook, Twitter, Mail, Lightbulb } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Tag, CheckCircle, Facebook, Twitter, Mail, Lightbulb, BookOpen } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
 import Button from '../components/Button';
 import Section from '../components/Section';
@@ -263,6 +263,20 @@ export default function BlogPost() {
               >
                 <Mail className="w-5 h-5" />
               </a>
+            </div>
+          </div>
+
+          {/* Parent Education CTA */}
+          <div className="mt-16 pt-8 border-t border-border-muted">
+            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8 text-center">
+              <BookOpen className="w-10 h-10 text-primary mx-auto mb-4" />
+              <p className="text-lg text-text-muted mb-6">
+                Want to dig deeper into this topic with a personalized 30-minute session?
+              </p>
+              <Button to="/parent-education" size="lg">
+                Book a Parent Education Session
+                <ArrowRight className="w-5 h-5" />
+              </Button>
             </div>
           </div>
 

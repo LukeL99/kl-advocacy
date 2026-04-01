@@ -176,6 +176,19 @@ export default function Services() {
         </div>
       </Section>
 
+      {/* Parent Education Callout */}
+      <Section bg="primary">
+        <div className="text-center">
+          <p className="text-text-muted text-lg mb-6">
+            Not ready for full advocacy? Just want to understand the process first?
+          </p>
+          <Button to="/parent-education" variant="outline" size="lg">
+            Explore Parent Education
+            <ArrowRight className="w-5 h-5" />
+          </Button>
+        </div>
+      </Section>
+
       {/* Gated Pricing Guide Download */}
       <Section bg="muted">
         <div className="max-w-2xl mx-auto text-center">
