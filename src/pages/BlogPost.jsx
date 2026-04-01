@@ -201,9 +201,7 @@ export default function BlogPost() {
                     {section.cta.text}
                   </p>
                   <Button
-                    href={section.cta.buttonUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    to={section.cta.buttonUrl}
                     size="lg"
                     className="mb-0"
                   >

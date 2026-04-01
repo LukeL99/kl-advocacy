@@ -2,7 +2,7 @@ import { BookOpen, ArrowRight, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
-const BOOKING_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeCZBm-Vppz8ReNgpLqQU9xA9kAUPihWj_-2gqSQ1AbtUCrCg/viewform?usp=header';
+// Session booking links go to Contact page with parent-education interest
 
 const sessions = [
   {
@@ -97,7 +97,7 @@ export default function ParentEducation() {
               </p>
               <div className="flex items-center justify-between pt-4 border-t border-border-muted">
                 <p className="font-heading text-primary">$65</p>
-                <Button href={BOOKING_URL} target="_blank" rel="noopener noreferrer" variant="outline" size="sm">
+                <Button to="/contact?interest=parent-education" variant="outline" size="sm">
                   Book This Session
                 </Button>
               </div>

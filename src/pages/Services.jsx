@@ -15,6 +15,7 @@ const services = [
     ],
     price: 'FREE',
     cta: 'Schedule Free Call',
+    interest: 'free-consultation',
   },
   {
     icon: FileText,
@@ -27,6 +28,7 @@ const services = [
     ],
     price: null,
     cta: 'Request Consultation',
+    interest: 'consultation',
   },
   {
     icon: Users,
@@ -39,6 +41,7 @@ const services = [
     ],
     price: null,
     cta: 'Learn More',
+    interest: 'meeting-attendance',
   },
   {
     icon: Package,
@@ -52,10 +55,11 @@ const services = [
     ],
     price: null,
     cta: 'View Packages',
+    interest: 'packages',
   },
 ];
 
-const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeCZBm-Vppz8ReNgpLqQU9xA9kAUPihWj_-2gqSQ1AbtUCrCg/viewform?usp=header';
+// Service buttons link to Contact page with pre-selected interest
 
 function PricingGuideForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -167,7 +171,7 @@ export default function Services() {
                 {service.price && (
                   <p className="font-heading text-primary mb-4">{service.price}</p>
                 )}
-                <Button href={GOOGLE_FORM_URL} target="_blank" rel="noopener noreferrer" variant="outline" className="w-full">
+                <Button to={`/contact?interest=${service.interest}`} variant="outline" className="w-full">
                   {service.cta}
                 </Button>
               </div>
@@ -210,7 +214,7 @@ export default function Services() {
           <p className="text-blue-100 mb-8 max-w-xl mx-auto">
             Every family&apos;s situation is unique. Schedule a free consultation and we&apos;ll figure out the best way I can help.
           </p>
-          <Button href={GOOGLE_FORM_URL} target="_blank" rel="noopener noreferrer" variant="white" size="lg">
+          <Button to="/contact?interest=free-consultation" variant="white" size="lg">
             Schedule Free Consultation
             <ArrowRight className="w-5 h-5" />
           </Button>

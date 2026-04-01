@@ -28,7 +28,7 @@ export default function Home() {
                   Learn How I Can Help
                   <ArrowRight className="w-5 h-5" />
                 </Button>
-                <Button href="https://docs.google.com/forms/d/e/1FAIpQLSeCZBm-Vppz8ReNgpLqQU9xA9kAUPihWj_-2gqSQ1AbtUCrCg/viewform?usp=header" variant="outline" size="lg">
+                <Button to="/contact?interest=free-consultation" variant="outline" size="lg">
                   Free Consultation
                 </Button>
               </div>
@@ -185,7 +185,7 @@ export default function Home() {
             Every family's journey is different. Let's talk about yours and find the best path forward - together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="https://docs.google.com/forms/d/e/1FAIpQLSeCZBm-Vppz8ReNgpLqQU9xA9kAUPihWj_-2gqSQ1AbtUCrCg/viewform?usp=header" target="_blank" rel="noopener noreferrer" variant="white" size="lg">
+            <Button to="/contact?interest=free-consultation" variant="white" size="lg">
               Schedule Free Consultation
             </Button>
             <Button href="tel:804-420-2273" variant="outline-white" size="lg">
