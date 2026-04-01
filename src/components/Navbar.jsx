@@ -20,9 +20,9 @@ export default function Navbar() {
     <nav className="bg-bg-primary/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Logo centered on top */}
-        <div className="flex justify-center pt-3 pb-2">
+        <div className="flex justify-center pt-2 pb-1">
           <Link to="/">
-            <img src="/logo-vertical.png" alt="Access Educational Advocacy" className="h-24 md:h-28 w-auto" />
+            <img src="/logo-vertical.png" alt="Access Educational Advocacy" className="h-16 md:h-20 w-auto" />
           </Link>
           {/* Mobile menu button */}
           <button
