@@ -97,7 +97,7 @@ export default function ParentEducation() {
               </p>
               <div className="flex items-center justify-between pt-4 border-t border-border-muted">
                 <p className="font-heading text-primary">$65</p>
-                <Button to="/contact?interest=parent-education" variant="outline" size="sm">
+                <Button to={`/contact?interest=parent-education&topic=${encodeURIComponent(session.title)}`} variant="outline" size="sm">
                   Book This Session
                 </Button>
               </div>

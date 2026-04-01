@@ -27,6 +27,7 @@ export default function Contact() {
   const [searchParams] = useSearchParams();
   const interestParam = searchParams.get('interest') || '';
   const initialInterest = INTEREST_MAP[interestParam] || '';
+  const topicParam = searchParams.get('topic') || '';
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -138,6 +139,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <input type="hidden" name="_subject" value="New Inquiry from Access Educational Advocacy Website" />
                   <input type="hidden" name="_template" value="table" />
+                  {topicParam && <input type="hidden" name="Parent Education Topic" value={topicParam} />}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-text-primary mb-2">First Name *</label>
@@ -206,6 +208,7 @@ export default function Contact() {
                       id="message"
                       name="message"
                       rows={4}
+                      defaultValue={topicParam ? `I'm interested in the Parent Education session: ${topicParam}` : ''}
                       className="w-full px-4 py-3 rounded-xl border border-border-muted bg-bg-secondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary resize-none"
                       placeholder="What's going on with your child's education? Any upcoming meetings or concerns?"
                     />
