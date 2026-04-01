@@ -128,7 +128,7 @@ export default function ParentEducation() {
         <div className="text-center">
           <h2 className="font-heading text-3xl text-white mb-4">Ready for More Than a Single Session?</h2>
           <p className="text-blue-100 mb-8 max-w-xl mx-auto">
-            If you&apos;re looking for ongoing support, document review, or meeting attendance\u2014then explore our full advocacy services.
+            If you&apos;re looking for ongoing support, document review, or meeting attendance, then explore our full advocacy services.
           </p>
           <Button to="/services" variant="white" size="lg">
             View Services
