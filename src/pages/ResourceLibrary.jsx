@@ -6,21 +6,21 @@ import Section, { SectionHeader } from '../components/Section';
 const resources = [
   {
     icon: FileText,
-    title: 'IEP vs 504 — What\'s the Difference?',
+    title: 'IEP vs 504: What\'s the Difference?',
     description:
       'A side-by-side comparison of both plans — who qualifies, what\'s included, and what law governs each. Perfect if you\'re trying to understand which plan is right for your child.',
     filename: 'iep-vs-504',
   },
   {
     icon: BookOpen,
-    title: 'Know The Terms — Special Education Glossary',
+    title: 'Know The Terms: Special Education Glossary',
     description:
       'Special education comes with a lot of acronyms and jargon. This two-page glossary covers the terms you\'re most likely to hear in meetings and see in documents.',
     filename: 'special-education-glossary',
   },
   {
     icon: Shield,
-    title: 'Know Your Rights — Procedural Safeguards Summary',
+    title: 'Know Your Rights: Procedural Safeguards Summary',
     description:
       'Every parent has rights under IDEA. This summary breaks down exactly what those rights are so you can walk into any meeting informed and prepared.',
     filename: 'procedural-safeguards-summary',
@@ -34,7 +34,7 @@ const resources = [
   },
   {
     icon: Layers,
-    title: 'Accommodations vs Modifications — What\'s the Difference?',
+    title: 'Accommodations vs Modifications: What\'s the Difference?',
     description:
       'Two words that sound similar but mean very different things for your child\'s education. This guide breaks down the distinction.',
     filename: 'accommodations-vs-modifications',
