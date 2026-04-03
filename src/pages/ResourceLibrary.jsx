@@ -194,11 +194,11 @@ export default function ResourceLibrary() {
         />
       </Section>
 
-      {/* Free Resources Grid */}
+      {/* Instant Download Resources */}
       <Section bg="primary">
         <SectionHeader
-          title="Free Parent Resources"
-          subtitle="Download any of these guides at no cost — no email required. Just click, save, and use them."
+          title="Instant Downloads"
+          subtitle="No sign-up needed. Click any guide to download it right now."
         />
 
         {/* Top row — 3 cards */}
@@ -206,11 +206,8 @@ export default function ResourceLibrary() {
           {resources.slice(0, 3).map((resource) => (
             <div
               key={resource.filename}
-              className="bg-bg-primary rounded-2xl p-8 border border-border-muted hover:shadow-lg transition-shadow flex flex-col relative"
+              className="bg-bg-primary rounded-2xl p-8 border-2 border-primary/20 hover:border-primary/40 hover:shadow-lg transition-all flex flex-col"
             >
-              <span className="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
-                <CheckCircle className="w-3 h-3" /> FREE
-              </span>
               <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
                 <resource.icon className="w-7 h-7 text-primary" />
               </div>
@@ -219,11 +216,11 @@ export default function ResourceLibrary() {
               <div className="pt-4 border-t border-border-muted">
                 <Button
                   href={`/resources/${resource.filename}.pdf`}
-                  variant="outline"
+                  variant="primary"
                   className="w-full"
                 >
                   <Download className="w-4 h-4" />
-                  Download Free Guide
+                  Download Now
                 </Button>
               </div>
             </div>
@@ -234,11 +231,8 @@ export default function ResourceLibrary() {
           {resources.slice(3).map((resource) => (
             <div
               key={resource.filename}
-              className="bg-bg-primary rounded-2xl p-8 border border-border-muted hover:shadow-lg transition-shadow flex flex-col relative"
+              className="bg-bg-primary rounded-2xl p-8 border-2 border-primary/20 hover:border-primary/40 hover:shadow-lg transition-all flex flex-col"
             >
-              <span className="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
-                <CheckCircle className="w-3 h-3" /> FREE
-              </span>
               <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
                 <resource.icon className="w-7 h-7 text-primary" />
               </div>
@@ -247,11 +241,11 @@ export default function ResourceLibrary() {
               <div className="pt-4 border-t border-border-muted">
                 <Button
                   href={`/resources/${resource.filename}.pdf`}
-                  variant="outline"
+                  variant="primary"
                   className="w-full"
                 >
                   <Download className="w-4 h-4" />
-                  Download Free Guide
+                  Download Now
                 </Button>
               </div>
             </div>
@@ -259,30 +253,32 @@ export default function ResourceLibrary() {
         </div>
       </Section>
 
-      {/* Want Access to More — dark divider */}
-      <section className="py-12 md:py-20 bg-[#1a2744]">
+      {/* Divider — Unlock More */}
+      <section className="py-14 md:py-20 bg-[#1a2744]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Mail className="w-10 h-10 text-blue-300 mx-auto mb-4" />
-          <h2 className="font-heading text-3xl md:text-4xl text-white mb-4">Want Access to More?</h2>
-          <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-2">
-            Join the Access Educational Advocacy Resource Library for free and unlock our full collection of parent guides, checklists, and tools as we continue to add them.
+          <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Mail className="w-8 h-8 text-blue-300" />
+          </div>
+          <h2 className="font-heading text-3xl md:text-4xl text-white mb-4">Unlock the Full Resource Library</h2>
+          <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-3">
+            Get access to our growing collection of parent guides, checklists, and tools — delivered straight to your inbox.
           </p>
-          <p className="text-blue-200/70 text-sm">Sign up below — it takes 10 seconds ↓</p>
+          <p className="text-blue-200/60 text-sm">Enter your info below — takes 10 seconds ↓</p>
         </div>
       </section>
 
       {/* Gated Signup */}
-      <Section bg="muted">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading text-3xl text-text-primary mb-3">
-            Get Free Access to the Full Library
+      <section className="py-12 md:py-16 bg-[#f0eef5]">
+        <div className="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-heading text-2xl text-text-primary mb-2">
+            Get Access to the Full Library
           </h2>
-          <p className="text-text-muted mb-8">
-            Enter your name and email below. We&apos;ll send you a password to access the full resource library instantly.
+          <p className="text-text-muted mb-8 text-sm">
+            Enter your name and email below. We&apos;ll send you a password to access everything instantly.
           </p>
           <SignupForm />
         </div>
-      </Section>
+      </section>
 
       {/* Bottom CTA — dark navy */}
       <section className="py-10 md:py-16 bg-[#1a2744]">
