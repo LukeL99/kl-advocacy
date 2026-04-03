@@ -6,6 +6,7 @@ const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
   { name: 'Parent Education', path: '/parent-education' },
+  { name: 'Resource Library', path: '/resources' },
   { name: 'About', path: '/about' },
   { name: 'FAQ', path: '/faq' },
   { name: 'Blog', path: '/blog' },

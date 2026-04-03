@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Phone, FileText, Users, Package, ArrowRight, Download, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
@@ -56,33 +57,125 @@ const services = [
     price: null,
     cta: 'View Packages',
     interest: 'packages',
+    scrollTo: 'pricing-guide',
   },
 ];
 
 // Service buttons link to Contact page with pre-selected interest
 
+// EmailJS config
+const EMAILJS_SERVICE_ID = 'service_2k6r2lq';
+const EMAILJS_TEMPLATE_ID = 'template_s9o9i3x';
+const EMAILJS_PUBLIC_KEY = 'l_JoXar5QscpqYAd3';
+
+// Mailchimp JSONP subscribe
+// u and id extracted from: https://myaccessadvocacy.us19.list-manage.com/subscribe?u=f60b2d5f1904ee6928eb2c5dd&id=dfdac89c42
+const MC_U = 'f60b2d5f1904ee6928eb2c5dd';
+const MC_ID = 'dfdac89c42';
+const MC_ACTION = `https://myaccessadvocacy.us19.list-manage.com/subscribe/post-json?u=${MC_U}&id=${MC_ID}`;
+
+function subscribeToMailchimp({ email, firstName, lastName }) {
+  return new Promise((resolve, reject) => {
+    const callbackName = `mc_callback_${Date.now()}`;
+    const script = document.createElement('script');
+    const timeout = setTimeout(() => {
+      cleanup();
+      reject(new Error('Request timed out. Please try again.'));
+    }, 10000);
+
+    function cleanup() {
+      clearTimeout(timeout);
+      delete window[callbackName];
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }
+
+    window[callbackName] = (data) => {
+      cleanup();
+      if (data.result === 'success') {
+        resolve(data);
+      } else {
+        // Mailchimp returns HTML in msg for some errors — strip tags
+        const msg = data.msg
+          ? data.msg.replace(/<[^>]+>/g, '').replace(/^\d+ - /, '').trim()
+          : 'Something went wrong. Please try again.';
+        // "Already subscribed" is actually fine — we can still show success
+        if (msg.toLowerCase().includes('already subscribed')) {
+          resolve({ result: 'success', msg });
+        } else {
+          reject(new Error(msg));
+        }
+      }
+    };
+
+    const params = new URLSearchParams({
+      EMAIL: email,
+      FNAME: firstName,
+      LNAME: lastName,
+      c: callbackName,
+    });
+
+    script.src = `${MC_ACTION}&${params.toString()}`;
+    script.onerror = () => {
+      cleanup();
+      reject(new Error('Network error. Please check your connection and try again.'));
+    };
+    document.head.appendChild(script);
+  });
+}
+
 function PricingGuideForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // TODO: Wire up email delivery + contact list integration
-    // For now, simulate submission
-    setTimeout(() => {
-      setLoading(false);
+    setError(null);
+
+    const form = e.currentTarget;
+    const firstName = form.firstName.value.trim();
+    const lastName = form.lastName.value.trim();
+    const email = form.email.value.trim();
+
+    try {
+      // Subscribe to Mailchimp + send welcome email in parallel
+      const siteUrl = window.location.origin;
+      await Promise.all([
+        subscribeToMailchimp({ email, firstName, lastName }),
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          to_email: email,
+          first_name: firstName,
+          download_link: `${siteUrl}/AEA-Services-and-Pricing-Guide.pdf`,
+        }, EMAILJS_PUBLIC_KEY),
+      ]);
       setSubmitted(true);
-    }, 1000);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
     return (
       <div className="text-center py-8">
         <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-        <h3 className="font-heading text-xl text-text-primary mb-2">Check Your Inbox!</h3>
-        <p className="text-text-muted">
-          Your pricing guide is on its way. If you don&apos;t see it in a few minutes, check your spam folder.
+        <h3 className="font-heading text-xl text-text-primary mb-2">You&apos;re all set!</h3>
+        <p className="text-text-muted mb-6">
+          Check your inbox for a copy of the guide. In the meantime, you can download it right now:
+        </p>
+        <a
+          href="/AEA-Services-and-Pricing-Guide.pdf"
+          download
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-colors"
+        >
+          <Download className="w-5 h-5" />
+          Download Pricing Guide
+        </a>
+        <p className="text-text-muted/60 text-sm mt-4">
+          Didn&apos;t get the email? Check your spam folder or{' '}
+          <a href="/contact" className="text-primary underline underline-offset-2">contact us</a>.
         </p>
       </div>
     );
@@ -131,6 +224,12 @@ function PricingGuideForm() {
           placeholder="you@example.com"
         />
       </div>
+      {error && (
+        <div className="flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
+          <span className="shrink-0 mt-0.5">⚠️</span>
+          <span>{error}</span>
+        </div>
+      )}
       <Button type="submit" variant="primary" size="lg" className="w-full" disabled={loading}>
         {loading ? 'Sending...' : 'Send Me the Guide'}
         {!loading && <Download className="w-5 h-5" />}
@@ -171,9 +270,18 @@ export default function Services() {
                 {service.price && (
                   <p className="font-heading text-primary mb-4">{service.price}</p>
                 )}
-                <Button to={`/contact?interest=${service.interest}`} variant="outline" className="w-full">
-                  {service.cta}
-                </Button>
+                {service.scrollTo ? (
+                  <button
+                    onClick={() => document.getElementById(service.scrollTo)?.scrollIntoView({ behavior: 'smooth' })}
+                    className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                  >
+                    {service.cta}
+                  </button>
+                ) : (
+                  <Button to={`/contact?interest=${service.interest}`} variant="outline" className="w-full">
+                    {service.cta}
+                  </Button>
+                )}
               </div>
             </div>
           ))}
@@ -194,7 +302,7 @@ export default function Services() {
       </Section>
 
       {/* Gated Pricing Guide Download */}
-      <Section bg="muted">
+      <Section bg="muted" id="pricing-guide">
         <div className="max-w-2xl mx-auto text-center">
           <Download className="w-10 h-10 text-primary mx-auto mb-4" />
           <h2 className="font-heading text-3xl text-text-primary mb-3">

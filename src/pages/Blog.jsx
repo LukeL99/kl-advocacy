@@ -40,7 +40,7 @@ export default function Blog() {
                     {/* Featured Image */}
                     <div className="h-48 overflow-hidden">
                       <img 
-                        src="/images/blog-iep-meeting-prep.png" 
+                        src={post.image || '/images/blog-iep-meeting-prep.png'} 
                         alt={post.title}
                         className="w-full h-full object-cover"
                       />

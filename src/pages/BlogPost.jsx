@@ -76,8 +76,8 @@ export default function BlogPost() {
           {/* Featured Image */}
           <div className="rounded-3xl overflow-hidden mb-8">
             <img 
-              src="/images/blog-iep-meeting-prep.png" 
-              alt="Parent preparing for IEP meeting - writing notes at a desk with a laptop and coffee"
+              src={post.image || '/images/blog-iep-meeting-prep.png'} 
+              alt={post.title}
               className="w-full h-64 md:h-80 object-cover"
             />
           </div>
