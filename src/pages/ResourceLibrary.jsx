@@ -214,14 +214,16 @@ export default function ResourceLibrary() {
               <h3 className="font-heading text-xl text-text-primary mb-3">{resource.title}</h3>
               <p className="text-text-muted text-sm mb-6 leading-relaxed flex-grow">{resource.description}</p>
               <div className="pt-4 border-t border-border-muted">
-                <Button
+                <a
                   href={`/resources/${resource.filename}.pdf`}
-                  variant="primary"
-                  className="w-full"
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 font-medium rounded-full transition-colors duration-200 bg-primary text-white hover:bg-primary-dark px-5 py-2.5 text-sm w-full"
                 >
                   <Download className="w-4 h-4" />
                   Download Now
-                </Button>
+                </a>
               </div>
             </div>
           ))}
@@ -239,14 +241,16 @@ export default function ResourceLibrary() {
               <h3 className="font-heading text-xl text-text-primary mb-3">{resource.title}</h3>
               <p className="text-text-muted text-sm mb-6 leading-relaxed flex-grow">{resource.description}</p>
               <div className="pt-4 border-t border-border-muted">
-                <Button
+                <a
                   href={`/resources/${resource.filename}.pdf`}
-                  variant="primary"
-                  className="w-full"
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 font-medium rounded-full transition-colors duration-200 bg-primary text-white hover:bg-primary-dark px-5 py-2.5 text-sm w-full"
                 >
                   <Download className="w-4 h-4" />
                   Download Now
-                </Button>
+                </a>
               </div>
             </div>
           ))}
