@@ -187,7 +187,7 @@ export default function ResourceLibrary() {
   return (
     <>
       {/* Hero */}
-      <Section bg="secondary">
+      <Section bg="secondary" className="!py-8 md:!py-10 !pb-0">
         <SectionHeader
           title="Resource Library"
           subtitle="Free tools and guides to help you navigate the special education process with confidence."
