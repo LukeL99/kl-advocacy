@@ -266,7 +266,7 @@ export default function Services() {
                   ))}
                 </ul>
               </div>
-              <div className="mt-auto pt-4 border-t border-border-muted">
+              <div className="mt-auto pt-4 border-t border-border-muted text-center">
                 {service.price && (
                   <p className="font-heading text-primary mb-4">{service.price}</p>
                 )}
