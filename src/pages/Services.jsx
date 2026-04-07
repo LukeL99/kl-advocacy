@@ -55,7 +55,7 @@ const services = [
       'Full Support - starting at $650',
     ],
     price: null,
-    cta: 'View Packages',
+    cta: 'Find Out More',
     interest: 'packages',
     scrollTo: 'pricing-guide',
   },
@@ -273,7 +273,7 @@ export default function Services() {
                 {service.scrollTo ? (
                   <button
                     onClick={() => document.getElementById(service.scrollTo)?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                    className="w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors font-medium text-sm"
                   >
                     {service.cta}
                   </button>
