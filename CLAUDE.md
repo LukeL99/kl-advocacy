@@ -15,10 +15,11 @@ Both environments auto-deploy via AWS Amplify on push.
 
 1. Make changes on the `staging` branch
 2. Push to origin -- Amplify deploys automatically to staging.myaccessadvocacy.com
-3. Review the staging site
-4. When approved, merge `staging` into `main` for production
+3. Send the staging URL (staging.myaccessadvocacy.com) to the user so they can review
+4. Ask: "Want me to deploy this to the main site?"
+5. If approved, merge `staging` into `main` for production
 
-Never push directly to `main`.
+Never push directly to `main`. Always let the user review staging first.
 
 ## Agent Identity
 
