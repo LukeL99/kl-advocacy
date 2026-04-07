@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Calendar, Clock, Tag, CheckCircle, Facebook, Twitter, Mail, Lightbulb, BookOpen } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Tag, CheckCircle, Facebook, Twitter, Mail, Lightbulb, BookOpen } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
 import Button from '../components/Button';
 import Section from '../components/Section';
@@ -272,7 +272,6 @@ export default function BlogPost() {
             <div className="text-center">
               <Button to="/parent-education" size="lg">
                 Explore Parent Education Sessions
-                <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
           </div>

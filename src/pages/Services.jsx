@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Phone, FileText, Users, Package, ArrowRight, Download, CheckCircle } from 'lucide-react';
+import { Phone, FileText, Users, Package, Download, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
@@ -296,7 +296,6 @@ export default function Services() {
           </p>
           <Button to="/parent-education" variant="outline" size="lg">
             Explore Parent Education
-            <ArrowRight className="w-5 h-5" />
           </Button>
         </div>
       </Section>
@@ -324,7 +323,6 @@ export default function Services() {
           </p>
           <Button to="/contact?interest=free-consultation" variant="white" size="lg">
             Schedule Free Consultation
-            <ArrowRight className="w-5 h-5" />
           </Button>
         </div>
       </Section>

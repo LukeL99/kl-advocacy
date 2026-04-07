@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
@@ -83,7 +83,6 @@ export default function FAQ() {
           </p>
           <Button to="/contact" size="lg">
             Get In Touch
-            <ArrowRight className="w-5 h-5" />
           </Button>
         </div>
       </Section>

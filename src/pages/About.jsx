@@ -1,4 +1,4 @@
-import { GraduationCap, Award, Heart, Briefcase, ArrowRight } from 'lucide-react';
+import { GraduationCap, Award, Heart, Briefcase } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
@@ -104,7 +104,6 @@ export default function About() {
           </blockquote>
           <Button to="/contact" size="lg">
             Let&apos;s Work Together
-            <ArrowRight className="w-5 h-5" />
           </Button>
         </div>
       </Section>

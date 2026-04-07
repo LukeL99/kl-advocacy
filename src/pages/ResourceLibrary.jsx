@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FileText, BookOpen, Shield, Mail, Layers, CheckCircle, Download, ArrowRight } from 'lucide-react';
+import { FileText, BookOpen, Shield, Mail, Layers, CheckCircle, Download } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
@@ -298,8 +298,7 @@ export default function ResourceLibrary() {
             variant="white"
             size="lg"
           >
-            Schedule a Free Consultation →
-            <ArrowRight className="w-5 h-5" />
+            Schedule a Free Consultation
           </Button>
         </div>
       </section>

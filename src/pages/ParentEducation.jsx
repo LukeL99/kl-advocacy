@@ -1,4 +1,4 @@
-import { BookOpen, ArrowRight, MessageCircle } from 'lucide-react';
+import { BookOpen, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
@@ -118,7 +118,6 @@ export default function ParentEducation() {
           </p>
           <Button to="/contact" size="lg">
             Contact Me
-            <ArrowRight className="w-5 h-5" />
           </Button>
         </div>
       </Section>
@@ -132,7 +131,6 @@ export default function ParentEducation() {
           </p>
           <Button to="/services" variant="white" size="lg">
             View Services
-            <ArrowRight className="w-5 h-5" />
           </Button>
         </div>
       </Section>

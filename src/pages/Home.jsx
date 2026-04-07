@@ -1,4 +1,4 @@
-import { ArrowRight, Phone, Mail, Shield, Users, FileText, CheckCircle } from 'lucide-react';
+import { Phone, Mail, Shield, Users, FileText, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
@@ -26,7 +26,6 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button to="/services" size="lg">
                   Learn How I Can Help
-                  <ArrowRight className="w-5 h-5" />
                 </Button>
                 <Button to="/contact?interest=free-consultation" variant="outline" size="lg">
                   Free Consultation

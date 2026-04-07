@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, Tag, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, Tag } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
 import Section, { SectionHeader } from '../components/Section';
 import Button from '../components/Button';
@@ -94,7 +94,6 @@ export default function Blog() {
                         className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors"
                       >
                         Read More
-                        <ArrowRight className="w-4 h-4" />
                       </Link>
                     </div>
                   </article>
