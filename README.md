@@ -1,4 +1,19 @@
-# React + Vite
+# My Access Advocacy
+
+Karlie's personal website at [myaccessadvocacy.com](https://myaccessadvocacy.com). Built with React + Vite.
+
+## Development
+
+| Environment | URL | Branch |
+|-------------|-----|--------|
+| Production | myaccessadvocacy.com | `main` |
+| Staging | staging.myaccessadvocacy.com | `staging` |
+
+Both environments auto-deploy via AWS Amplify on push.
+
+Workflow: make changes on `staging` -> push -> review at staging.myaccessadvocacy.com -> merge to `main` for production. Never push directly to `main`.
+
+---
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
