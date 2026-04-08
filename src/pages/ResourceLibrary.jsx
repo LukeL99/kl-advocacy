@@ -143,13 +143,17 @@ function SignupModal({ isOpen, onClose }) {
           <div className="text-center py-4">
             <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
             <h3 className="font-heading text-2xl text-text-primary mb-2">You&apos;re in!</h3>
-            <p className="text-text-muted">Check your email for access details.</p>
-            <button
-              onClick={onClose}
-              className="mt-6 px-6 py-2.5 rounded-full bg-primary text-white font-medium hover:bg-primary-dark transition-colors"
+            <p className="text-text-muted mb-4">Here&apos;s your password to access the full library:</p>
+            <div className="bg-bg-muted rounded-xl px-6 py-3 mb-4 inline-block">
+              <span className="font-heading text-2xl text-primary tracking-widest select-all">access</span>
+            </div>
+            <p className="text-text-muted/60 text-sm mb-6">We&apos;ve also sent this to your email.</p>
+            <a
+              href="/full-library"
+              className="inline-flex px-6 py-2.5 rounded-full bg-accent text-white font-medium hover:bg-[#b8854f] transition-colors"
             >
-              Got it
-            </button>
+              Go to Full Library
+            </a>
           </div>
         ) : (
           <>

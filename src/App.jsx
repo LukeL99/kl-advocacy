@@ -11,6 +11,7 @@ import ResourceLibrary from './pages/ResourceLibrary';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import FullLibrary from './pages/FullLibrary';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,6 +38,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/full-library" element={<FullLibrary />} />
           </Routes>
         </main>
         <Footer />
