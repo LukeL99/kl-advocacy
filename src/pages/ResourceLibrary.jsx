@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FileText, BookOpen, Shield, Mail, Layers, CheckCircle, Download } from 'lucide-react';
+import { FileText, BookOpen, Shield, Mail, Layers, CheckCircle, Download, Lock, X, Sparkles } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
@@ -95,7 +95,7 @@ function subscribeToMailchimp({ email, firstName, lastName }) {
   });
 }
 
-function SignupForm() {
+function SignupModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -120,72 +120,118 @@ function SignupForm() {
     }
   };
 
-  if (submitted) {
-    return (
-      <div className="text-center py-8">
-        <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-        <h3 className="font-heading text-xl text-text-primary mb-2">Thank you!</h3>
-        <p className="text-text-muted">Check your email for access details.</p>
-      </div>
-    );
-  }
+  if (!isOpen) return null;
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="firstName" className="block text-sm font-medium text-text-secondary mb-1">
-            First Name
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            required
-            placeholder="First name"
-            className="w-full px-4 py-2.5 rounded-lg border border-border bg-bg-primary text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-          />
-        </div>
-        <div>
-          <label htmlFor="lastName" className="block text-sm font-medium text-text-secondary mb-1">
-            Last Name
-          </label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            required
-            placeholder="Last name"
-            className="w-full px-4 py-2.5 rounded-lg border border-border bg-bg-primary text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-          />
-        </div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+
+      {/* Modal */}
+      <div
+        className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 md:p-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-text-muted hover:bg-gray-100 transition-colors"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {submitted ? (
+          <div className="text-center py-4">
+            <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
+            <h3 className="font-heading text-2xl text-text-primary mb-2">You&apos;re in!</h3>
+            <p className="text-text-muted">Check your email for access details.</p>
+            <button
+              onClick={onClose}
+              className="mt-6 px-6 py-2.5 rounded-full bg-primary text-white font-medium hover:bg-primary-dark transition-colors"
+            >
+              Got it
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="text-center mb-6">
+              <div className="w-14 h-14 bg-accent/15 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Sparkles className="w-7 h-7 text-accent" />
+              </div>
+              <h3 className="font-heading text-2xl text-text-primary mb-2">
+                Get Full Access
+              </h3>
+              <p className="text-text-muted text-sm">
+                Enter your info and we&apos;ll send you instant access to the full resource library.
+              </p>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="modal-firstName" className="block text-sm font-medium text-text-secondary mb-1">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="modal-firstName"
+                    name="firstName"
+                    required
+                    placeholder="First name"
+                    className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="modal-lastName" className="block text-sm font-medium text-text-secondary mb-1">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="modal-lastName"
+                    name="lastName"
+                    required
+                    placeholder="Last name"
+                    className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="modal-email" className="block text-sm font-medium text-text-secondary mb-1">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="modal-email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                />
+              </div>
+              {error && (
+                <p className="text-red-600 text-sm text-center">{error}</p>
+              )}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full px-6 py-3 rounded-full bg-accent text-white font-medium text-base hover:bg-[#b8854f] transition-colors disabled:opacity-60"
+              >
+                {loading ? 'Sending...' : 'Send Me Access'}
+              </button>
+              <p className="text-text-muted/50 text-xs text-center">No spam. Unsubscribe anytime.</p>
+            </form>
+          </>
+        )}
       </div>
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">
-          Email Address
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          placeholder="you@example.com"
-          className="w-full px-4 py-2.5 rounded-lg border border-border bg-bg-primary text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-        />
-      </div>
-      {error && (
-        <p className="text-red-600 text-sm text-center">{error}</p>
-      )}
-      <Button type="submit" variant="primary" size="lg" className="w-full" disabled={loading}>
-        {loading ? 'Sending...' : 'Send Me Access →'}
-      </Button>
-    </form>
+    </div>
   );
 }
 
 export default function ResourceLibrary() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
+      <SignupModal isOpen={showModal} onClose={() => setShowModal(false)} />
+
       {/* Hero */}
       <Section bg="secondary" className="!py-8 md:!py-10 !pb-0">
         <SectionHeader
@@ -257,30 +303,30 @@ export default function ResourceLibrary() {
         </div>
       </Section>
 
-      {/* Divider — Unlock More */}
-      <section className="py-14 md:py-20 bg-[#1a2744]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Mail className="w-8 h-8 text-blue-300" />
+      {/* Unlock Full Library CTA */}
+      <section className="relative py-16 md:py-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #C4956A 0%, #d4a87a 40%, #e0c4a0 100%)' }}>
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-1/3 translate-y-1/3" />
+
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+            <Lock className="w-8 h-8 text-white" />
           </div>
-          <h2 className="font-heading text-3xl md:text-4xl text-white mb-4">Unlock the Full Resource Library</h2>
-          <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-3">
+          <h2 className="font-heading text-3xl md:text-5xl text-white mb-4 drop-shadow-sm">
+            Unlock the Full Resource Library
+          </h2>
+          <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
             Get access to our growing collection of parent guides, checklists, and tools — delivered straight to your inbox.
           </p>
-          <p className="text-blue-200/60 text-sm">Enter your info below — takes 10 seconds ↓</p>
-        </div>
-      </section>
-
-      {/* Gated Signup */}
-      <section className="py-12 md:py-16 bg-[#f0eef5]">
-        <div className="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-2xl text-text-primary mb-2">
-            Get Access to the Full Library
-          </h2>
-          <p className="text-text-muted mb-8 text-sm">
-            Enter your name and email below. We&apos;ll send you a password to access everything instantly.
-          </p>
-          <SignupForm />
+          <button
+            onClick={() => setShowModal(true)}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#2C4A6E] font-heading font-bold text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+          >
+            <Sparkles className="w-5 h-5" />
+            Get Free Access
+          </button>
+          <p className="text-white/60 text-sm mt-4">Takes 10 seconds. No spam, ever.</p>
         </div>
       </section>
 
