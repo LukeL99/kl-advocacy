@@ -1,7 +1,13 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { FileText, BookOpen, Shield, Mail, Layers, CheckCircle, Download, Lock, X, Sparkles } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
+
+// EmailJS config — same service as Services page, new template for resource library
+const EMAILJS_SERVICE_ID = 'service_2k6r2lq';
+const EMAILJS_TEMPLATE_ID = 'template_6p9u1sp';
+const EMAILJS_PUBLIC_KEY = 'l_JoXar5QscpqYAd3';
 
 const resources = [
   {
@@ -111,7 +117,15 @@ function SignupModal({ isOpen, onClose }) {
     const email = formData.get('email');
 
     try {
-      await subscribeToMailchimp({ email, firstName, lastName });
+      const siteUrl = window.location.origin;
+      await Promise.all([
+        subscribeToMailchimp({ email, firstName, lastName }),
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          to_email: email,
+          first_name: firstName,
+          library_link: `${siteUrl}/full-library`,
+        }, EMAILJS_PUBLIC_KEY),
+      ]);
       setSubmitted(true);
     } catch (err) {
       setError(err.message || 'Something went wrong. Please try again.');
