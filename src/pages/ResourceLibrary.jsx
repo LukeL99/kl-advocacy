@@ -240,7 +240,7 @@ export default function ResourceLibrary() {
       <Section bg="primary">
         <SectionHeader
           title="Resource Library"
-          subtitle="Free tools and guides to help you navigate the special education process with confidence. No sign-up needed — click any guide to download it right now."
+          subtitle="Free tools and guides to help you navigate the special education process with confidence."
         />
 
         {/* Top row — 3 cards */}
