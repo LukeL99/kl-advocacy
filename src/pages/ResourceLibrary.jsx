@@ -122,7 +122,12 @@ function SignupModal({ isOpen, onClose }) {
     }
   };
 
-  if (!isOpen) return null;
+  // Reset state when modal is closed so it's fresh next time
+  if (!isOpen) {
+    if (submitted) setSubmitted(false);
+    if (error) setError('');
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
