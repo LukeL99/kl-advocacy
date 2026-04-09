@@ -236,19 +236,11 @@ export default function ResourceLibrary() {
     <>
       <SignupModal isOpen={showModal} onClose={() => setShowModal(false)} />
 
-      {/* Hero */}
-      <Section bg="secondary" className="!py-8 md:!py-10 !pb-0">
-        <SectionHeader
-          title="Resource Library"
-          subtitle="Free tools and guides to help you navigate the special education process with confidence."
-        />
-      </Section>
-
-      {/* Instant Download Resources */}
+      {/* Resource Library + Instant Downloads — single section */}
       <Section bg="primary">
         <SectionHeader
-          title="Instant Downloads"
-          subtitle="No sign-up needed. Click any guide to download it right now."
+          title="Resource Library"
+          subtitle="Free tools and guides to help you navigate the special education process with confidence. No sign-up needed — click any guide to download it right now."
         />
 
         {/* Top row — 3 cards */}
