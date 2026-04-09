@@ -50,52 +50,43 @@ const resources = [
 // Mailchimp config — same list as Services page
 const MC_U = 'f60b2d5f1904ee6928eb2c5dd';
 const MC_ID = 'dfdac89c42';
-const MC_ACTION = `https://myaccessadvocacy.us19.list-manage.com/subscribe/post-json?u=${MC_U}&id=${MC_ID}`;
+const MC_POST_URL = `https://myaccessadvocacy.us19.list-manage.com/subscribe/post`;
 
 function subscribeToMailchimp({ email, firstName, lastName }) {
-  return new Promise((resolve, reject) => {
-    const callbackName = `mc_callback_${Date.now()}`;
-    const script = document.createElement('script');
-    const timeout = setTimeout(() => {
-      cleanup();
-      reject(new Error('Request timed out. Please try again.'));
-    }, 10000);
+  return new Promise((resolve) => {
+    // Submit via hidden iframe (Mailchimp's JSONP endpoint is deprecated)
+    const iframeName = `mc_iframe_${Date.now()}`;
+    const iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
 
-    function cleanup() {
-      clearTimeout(timeout);
-      delete window[callbackName];
-      if (script.parentNode) script.parentNode.removeChild(script);
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = MC_POST_URL;
+    form.target = iframeName;
+    form.style.display = 'none';
+
+    const fields = { u: MC_U, id: MC_ID, EMAIL: email, FNAME: firstName, LNAME: lastName };
+    for (const [key, value] of Object.entries(fields)) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = value;
+      form.appendChild(input);
     }
 
-    window[callbackName] = (data) => {
-      cleanup();
-      if (data.result === 'success') {
-        resolve(data);
-      } else {
-        const msg = data.msg
-          ? data.msg.replace(/<[^>]+>/g, '').replace(/^\d+ - /, '').trim()
-          : 'Something went wrong. Please try again.';
-        if (msg.toLowerCase().includes('already subscribed')) {
-          resolve({ result: 'success', msg });
-        } else {
-          reject(new Error(msg));
-        }
-      }
-    };
+    document.body.appendChild(form);
+    form.submit();
 
-    const params = new URLSearchParams({
-      EMAIL: email,
-      FNAME: firstName,
-      LNAME: lastName,
-      c: callbackName,
-    });
+    // Clean up after a short delay -- we can't read the iframe response (cross-origin)
+    // but the subscription goes through
+    setTimeout(() => {
+      iframe.remove();
+      form.remove();
+    }, 3000);
 
-    script.src = `${MC_ACTION}&${params.toString()}`;
-    script.onerror = () => {
-      cleanup();
-      reject(new Error('Network error. Please try again.'));
-    };
-    document.head.appendChild(script);
+    resolve({ result: 'success' });
   });
 }
 

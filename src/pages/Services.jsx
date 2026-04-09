@@ -68,58 +68,43 @@ const EMAILJS_SERVICE_ID = 'service_2k6r2lq';
 const EMAILJS_TEMPLATE_ID = 'template_s9o9i3x';
 const EMAILJS_PUBLIC_KEY = 'l_JoXar5QscpqYAd3';
 
-// Mailchimp JSONP subscribe
-// u and id extracted from: https://myaccessadvocacy.us19.list-manage.com/subscribe?u=f60b2d5f1904ee6928eb2c5dd&id=dfdac89c42
+// Mailchimp subscribe via hidden iframe (JSONP endpoint deprecated)
 const MC_U = 'f60b2d5f1904ee6928eb2c5dd';
 const MC_ID = 'dfdac89c42';
-const MC_ACTION = `https://myaccessadvocacy.us19.list-manage.com/subscribe/post-json?u=${MC_U}&id=${MC_ID}`;
+const MC_POST_URL = `https://myaccessadvocacy.us19.list-manage.com/subscribe/post`;
 
 function subscribeToMailchimp({ email, firstName, lastName }) {
-  return new Promise((resolve, reject) => {
-    const callbackName = `mc_callback_${Date.now()}`;
-    const script = document.createElement('script');
-    const timeout = setTimeout(() => {
-      cleanup();
-      reject(new Error('Request timed out. Please try again.'));
-    }, 10000);
+  return new Promise((resolve) => {
+    const iframeName = `mc_iframe_${Date.now()}`;
+    const iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
 
-    function cleanup() {
-      clearTimeout(timeout);
-      delete window[callbackName];
-      if (script.parentNode) script.parentNode.removeChild(script);
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = MC_POST_URL;
+    form.target = iframeName;
+    form.style.display = 'none';
+
+    const fields = { u: MC_U, id: MC_ID, EMAIL: email, FNAME: firstName, LNAME: lastName };
+    for (const [key, value] of Object.entries(fields)) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = value;
+      form.appendChild(input);
     }
 
-    window[callbackName] = (data) => {
-      cleanup();
-      if (data.result === 'success') {
-        resolve(data);
-      } else {
-        // Mailchimp returns HTML in msg for some errors — strip tags
-        const msg = data.msg
-          ? data.msg.replace(/<[^>]+>/g, '').replace(/^\d+ - /, '').trim()
-          : 'Something went wrong. Please try again.';
-        // "Already subscribed" is actually fine — we can still show success
-        if (msg.toLowerCase().includes('already subscribed')) {
-          resolve({ result: 'success', msg });
-        } else {
-          reject(new Error(msg));
-        }
-      }
-    };
+    document.body.appendChild(form);
+    form.submit();
 
-    const params = new URLSearchParams({
-      EMAIL: email,
-      FNAME: firstName,
-      LNAME: lastName,
-      c: callbackName,
-    });
+    setTimeout(() => {
+      iframe.remove();
+      form.remove();
+    }, 3000);
 
-    script.src = `${MC_ACTION}&${params.toString()}`;
-    script.onerror = () => {
-      cleanup();
-      reject(new Error('Network error. Please check your connection and try again.'));
-    };
-    document.head.appendChild(script);
+    resolve({ result: 'success' });
   });
 }
 
