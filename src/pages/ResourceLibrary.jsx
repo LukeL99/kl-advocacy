@@ -117,16 +117,15 @@ function SignupModal({ isOpen, onClose }) {
     const email = formData.get('email');
 
     try {
-      const siteUrl = window.location.origin;
-      await Promise.all([
-        subscribeToMailchimp({ email, firstName, lastName }),
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-          to_email: email,
-          first_name: firstName,
-          library_link: `${siteUrl}/full-library`,
-        }, EMAILJS_PUBLIC_KEY),
-      ]);
+      await subscribeToMailchimp({ email, firstName, lastName });
       setSubmitted(true);
+      // Send welcome email in background — don't block signup on email delivery
+      const siteUrl = window.location.origin;
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: email,
+        first_name: firstName,
+        library_link: `${siteUrl}/full-library`,
+      }, EMAILJS_PUBLIC_KEY).catch(() => {});
     } catch (err) {
       setError(err.message || 'Something went wrong. Please try again.');
     } finally {
