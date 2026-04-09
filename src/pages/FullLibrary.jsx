@@ -66,14 +66,11 @@ export default function FullLibrary() {
 
   return (
     <>
-      <Section bg="secondary">
+      <Section bg="primary">
         <SectionHeader
           title="Full Resource Library"
           subtitle="Your growing collection of guides, checklists, and tools."
         />
-      </Section>
-
-      <Section bg="primary">
         <div className="max-w-2xl mx-auto text-center">
           <div className="w-20 h-20 bg-accent/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <Sparkles className="w-10 h-10 text-accent" />
