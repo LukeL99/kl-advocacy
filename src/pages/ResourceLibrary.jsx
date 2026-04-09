@@ -278,8 +278,8 @@ export default function ResourceLibrary() {
             </div>
           ))}
         </div>
-        {/* Bottom row — 2 cards, centered */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-[calc(66.666%+0.75rem)] mx-auto">
+        {/* Bottom row — 2 resource cards + unlock CTA card */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {resources.slice(3).map((resource) => (
             <div
               key={resource.filename}
@@ -304,35 +304,37 @@ export default function ResourceLibrary() {
               </div>
             </div>
           ))}
+
+          {/* Unlock Full Library — CTA card */}
+          <div
+            className="relative rounded-2xl p-8 flex flex-col overflow-hidden border-2 border-accent/40 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200 cursor-pointer"
+            style={{ background: 'linear-gradient(135deg, #C4956A 0%, #d4a87a 50%, #e0c4a0 100%)' }}
+            onClick={() => setShowModal(true)}
+          >
+            {/* Decorative circles */}
+            <div className="absolute -top-6 -right-6 w-24 h-24 bg-white/10 rounded-full" />
+            <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-white/10 rounded-full" />
+
+            <div className="relative flex flex-col h-full text-center">
+              <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                <Lock className="w-7 h-7 text-white" />
+              </div>
+              <h3 className="font-heading text-xl text-white mb-3">
+                Unlock the Full Library
+              </h3>
+              <p className="text-white/85 text-sm mb-6 leading-relaxed flex-grow">
+                Get access to our growing collection of guides, checklists, and tools — delivered straight to your inbox.
+              </p>
+              <div className="pt-4 border-t border-white/20">
+                <span className="inline-flex items-center justify-center gap-2 font-medium rounded-full bg-white text-[#2C4A6E] px-5 py-2.5 text-sm w-full hover:bg-white/90 transition-colors">
+                  <Sparkles className="w-4 h-4" />
+                  Get Free Access
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
-
-      {/* Unlock Full Library CTA */}
-      <section className="relative py-16 md:py-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #C4956A 0%, #d4a87a 40%, #e0c4a0 100%)' }}>
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-1/3 translate-y-1/3" />
-
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-            <Lock className="w-8 h-8 text-white" />
-          </div>
-          <h2 className="font-heading text-3xl md:text-5xl text-white mb-4 drop-shadow-sm">
-            Unlock the Full Resource Library
-          </h2>
-          <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-            Get access to our growing collection of parent guides, checklists, and tools — delivered straight to your inbox.
-          </p>
-          <button
-            onClick={() => setShowModal(true)}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#2C4A6E] font-heading font-bold text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
-          >
-            <Sparkles className="w-5 h-5" />
-            Get Free Access
-          </button>
-          <p className="text-white/60 text-sm mt-4">Takes 10 seconds. No spam, ever.</p>
-        </div>
-      </section>
 
       {/* Bottom CTA — dark navy */}
       <section className="py-10 md:py-16 bg-[#1a2744]">
