@@ -84,12 +84,10 @@ function subscribeToMailchimp({ email, firstName, lastName }) {
     };
 
     const params = new URLSearchParams({
-      u: MC_U,
-      id: MC_ID,
-      c: callbackName,
+      EMAIL: email,
       FNAME: firstName,
       LNAME: lastName,
-      EMAIL: email,
+      c: callbackName,
     });
 
     script.src = `${MC_ACTION}&${params.toString()}`;
@@ -97,7 +95,7 @@ function subscribeToMailchimp({ email, firstName, lastName }) {
       cleanup();
       reject(new Error('Network error. Please try again.'));
     };
-    document.body.appendChild(script);
+    document.head.appendChild(script);
   });
 }
 
