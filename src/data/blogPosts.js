@@ -9,6 +9,12 @@ export const blogPosts = [
     categories: ['IEP Process', 'Parent Resources'],
     tags: ['first IEP meeting', 'IEP preparation', 'special education', 'parent advocacy'],
     readTime: '6 min read',
+    resources: [
+      { title: 'Questions to Ask at Every IEP Meeting', path: '/full-library', gated: true },
+      { title: 'IEP Meeting Red Flags Checklist', path: '/full-library', gated: true },
+      { title: 'Know The Terms: Special Education Glossary', path: '/resources/special-education-glossary.pdf', gated: false },
+      { title: 'Accommodations vs Modifications', path: '/resources/accommodations-vs-modifications.pdf', gated: false },
+    ],
     content: {
       intro: [
         'The email arrives in your inbox: "IEP Meeting Scheduled for Johnny." Your stomach drops a little. You\'ve heard the term thrown around from other parents or your child\'s teacher, but you\'re not entirely sure what you\'re supposed to do to get ready.',
@@ -122,6 +128,11 @@ export const blogPosts = [
     categories: ['Special Education', 'Parent Resources'],
     tags: ['school evaluation', 'special education', 'parent rights', 'IEP eligibility'],
     readTime: '8 min read',
+    resources: [
+      { title: 'What Is a PWN?', path: '/resources/what-is-a-pwn.pdf', gated: false },
+      { title: 'Know Your Rights: Procedural Safeguards Summary', path: '/resources/procedural-safeguards-summary.pdf', gated: false },
+      { title: 'IEP vs 504: What\'s the Difference?', path: '/resources/iep-vs-504.pdf', gated: false },
+    ],
     content: {
       intro: [
         'You got a call or a letter from the school. They\'ve noticed something. Maybe your child is struggling to keep up, maybe a teacher flagged some concerns, and now they\'re recommending an evaluation.',
@@ -248,6 +259,11 @@ export const blogPosts = [
     categories: ['Special Education', 'Parent Resources'],
     tags: ['eligibility meeting', 'special education', 'IEP eligibility', 'parent rights'],
     readTime: '9 min read',
+    resources: [
+      { title: 'Questions to Ask at an Eligibility Meeting', path: '/full-library', gated: true },
+      { title: 'Know Your Rights: Procedural Safeguards Summary', path: '/resources/procedural-safeguards-summary.pdf', gated: false },
+      { title: 'IEP vs 504: What\'s the Difference?', path: '/resources/iep-vs-504.pdf', gated: false },
+    ],
     content: {
       intro: [
         'The evaluation is done. Reports have been written, tests have been scored, observations have been made. Now the school is scheduling another meeting, this one called an eligibility meeting, and somehow it feels heavier than everything that came before it.',

@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, Clock, Tag, CheckCircle, Facebook, Twitter, Mail, Lightbulb, BookOpen } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Tag, CheckCircle, Facebook, Twitter, Mail, Lightbulb, BookOpen, Download, Lock } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
 import Button from '../components/Button';
 import Section from '../components/Section';
@@ -95,6 +95,38 @@ export default function BlogPost() {
               </p>
             ))}
           </div>
+
+          {/* Related Resources Callout */}
+          {post.resources && post.resources.length > 0 && (
+            <div className="mb-12 bg-bg-muted rounded-2xl p-6 md:p-8 border border-border-muted">
+              <div className="flex items-center gap-2 mb-4">
+                <BookOpen className="w-5 h-5 text-primary" />
+                <h3 className="font-heading text-lg text-text-primary">Related Resources</h3>
+              </div>
+              <p className="text-sm text-text-muted mb-4">Grab these guides to go along with this post:</p>
+              <ul className="space-y-2">
+                {post.resources.map((resource, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={resource.path}
+                      {...(!resource.gated ? { download: true, target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-medium text-sm transition-colors"
+                    >
+                      {resource.gated ? (
+                        <Lock className="w-4 h-4 text-accent" />
+                      ) : (
+                        <Download className="w-4 h-4" />
+                      )}
+                      {resource.title}
+                      {resource.gated && (
+                        <span className="text-xs text-accent font-normal">(subscriber access)</span>
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Main Content Sections */}
           {post.content.sections.map((section, sectionIdx) => (
