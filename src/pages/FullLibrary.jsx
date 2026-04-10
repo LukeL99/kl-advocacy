@@ -295,15 +295,6 @@ export default function FullLibrary() {
           title="Full Resource Library"
           subtitle="Exclusive guides and tools for subscribers. More resources are added regularly."
         />
-        <p className="text-center -mt-8 mb-12">
-          <button
-            onClick={() => setShowRequestModal(true)}
-            className="text-accent hover:text-[#b8854f] font-medium transition-colors underline underline-offset-2"
-          >
-            Don&apos;t see what you&apos;re looking for? Request a topic here.
-          </button>
-        </p>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {gatedResources.map((resource) => (
             <div
@@ -337,6 +328,14 @@ export default function FullLibrary() {
             free resource library
           </a>{' '}
           for additional guides.
+        </p>
+        <p className="text-center mt-4">
+          <button
+            onClick={() => setShowRequestModal(true)}
+            className="text-accent hover:text-[#b8854f] font-medium transition-colors underline underline-offset-2"
+          >
+            Don&apos;t see what you&apos;re looking for? Request a topic here.
+          </button>
         </p>
       </Section>
     </>
