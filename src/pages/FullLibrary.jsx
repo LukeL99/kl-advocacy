@@ -1,9 +1,33 @@
 import { useState } from 'react';
-import { Lock, BookOpen, Sparkles } from 'lucide-react';
+import { Lock, Download, FileText, AlertTriangle, HelpCircle } from 'lucide-react';
 import Section, { SectionHeader } from '../components/Section';
 import Button from '../components/Button';
 
 const CORRECT_PASSWORD = 'access';
+
+const gatedResources = [
+  {
+    icon: HelpCircle,
+    title: 'Questions to Ask at an Eligibility Meeting',
+    description:
+      '10 essential questions to ask before a decision is made about your child\'s eligibility for special education services under IDEA.',
+    filename: 'eligibility-meeting-questions',
+  },
+  {
+    icon: FileText,
+    title: 'Questions to Ask at Every IEP Meeting',
+    description:
+      '10 questions to help you come prepared and leave informed. Covers goals, services, progress monitoring, and your rights.',
+    filename: 'iep-meeting-questions',
+  },
+  {
+    icon: AlertTriangle,
+    title: 'IEP Meeting Red Flags Checklist',
+    description:
+      'A checklist of warning signs to watch for during the meeting and in the IEP document itself. Trust your instincts and know what to look for.',
+    filename: 'iep-red-flags',
+  },
+];
 
 export default function FullLibrary() {
   const [password, setPassword] = useState('');
@@ -69,43 +93,43 @@ export default function FullLibrary() {
       <Section bg="primary">
         <SectionHeader
           title="Full Resource Library"
-          subtitle="Your growing collection of guides, checklists, and tools."
+          subtitle="Exclusive guides and tools for subscribers. More resources are added regularly."
         />
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="w-20 h-20 bg-accent/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <Sparkles className="w-10 h-10 text-accent" />
-          </div>
-          <h2 className="font-heading text-3xl text-text-primary mb-4">
-            Coming Soon
-          </h2>
-          <p className="text-text-muted text-lg mb-4 leading-relaxed">
-            We&apos;re building out the full resource library with even more guides, checklists, templates, and tools to help you navigate the special education process.
-          </p>
-          <p className="text-text-muted mb-8">
-            As a subscriber, you&apos;ll be the first to know when new resources are added. Keep an eye on your inbox!
-          </p>
-          <div className="grid sm:grid-cols-3 gap-4 mb-10">
-            <div className="bg-bg-muted rounded-2xl p-6 text-center">
-              <BookOpen className="w-6 h-6 text-primary mx-auto mb-2" />
-              <p className="text-sm font-medium text-text-primary">In-Depth Guides</p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {gatedResources.map((resource) => (
+            <div
+              key={resource.filename}
+              className="bg-bg-primary rounded-2xl p-8 border-2 border-accent/20 hover:border-accent/40 hover:shadow-lg transition-all flex flex-col"
+            >
+              <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                <resource.icon className="w-7 h-7 text-accent" />
+              </div>
+              <h3 className="font-heading text-xl text-text-primary mb-3">{resource.title}</h3>
+              <p className="text-text-muted text-sm mb-6 leading-relaxed flex-grow">{resource.description}</p>
+              <div className="pt-4 border-t border-border-muted">
+                <a
+                  href={`/resources/${resource.filename}.pdf`}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 font-medium rounded-full transition-colors duration-200 bg-accent text-white hover:bg-[#b8854f] px-5 py-2.5 text-sm w-full"
+                >
+                  <Download className="w-4 h-4" />
+                  Download
+                </a>
+              </div>
             </div>
-            <div className="bg-bg-muted rounded-2xl p-6 text-center">
-              <BookOpen className="w-6 h-6 text-primary mx-auto mb-2" />
-              <p className="text-sm font-medium text-text-primary">Printable Checklists</p>
-            </div>
-            <div className="bg-bg-muted rounded-2xl p-6 text-center">
-              <BookOpen className="w-6 h-6 text-primary mx-auto mb-2" />
-              <p className="text-sm font-medium text-text-primary">Meeting Templates</p>
-            </div>
-          </div>
-          <p className="text-text-muted text-sm">
-            In the meantime, check out the{' '}
-            <a href="/resources" className="text-primary underline underline-offset-2">
-              free resources
-            </a>{' '}
-            available now.
-          </p>
+          ))}
         </div>
+
+        <p className="text-text-muted text-sm text-center mt-10">
+          More resources coming soon. Also check out the{' '}
+          <a href="/resources" className="text-primary underline underline-offset-2">
+            free resource library
+          </a>{' '}
+          for additional guides.
+        </p>
       </Section>
     </>
   );
