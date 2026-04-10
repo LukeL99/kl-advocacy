@@ -375,7 +375,7 @@ export const blogPosts = [
   },
   {
     slug: 'understanding-eligibility',
-    image: '/images/blog-eligibility-meeting.png',
+    image: '/images/blog-understanding-eligibility.png',
     title: 'Understanding Eligibility: How Schools Decide if Your Child Qualifies for Special Education',
     excerpt: "The evaluation is done and the reports have been reviewed. Understanding how schools actually make the eligibility decision helps you walk in as an informed participant, not just someone waiting to hear a verdict.",
     author: 'Karlie, SLP and Educational Advocate at Access Educational Advocacy',
