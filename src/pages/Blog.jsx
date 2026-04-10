@@ -7,21 +7,17 @@ import Button from '../components/Button';
 export default function Blog() {
   return (
     <>
-      {/* Hero Section */}
-      <Section bg="secondary" className="!py-16 md:!py-20">
-        <div className="text-center max-w-3xl mx-auto">
+      {/* Blog */}
+      <Section bg="primary">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <h1 className="font-heading text-4xl md:text-5xl text-text-primary mb-6">
             Educational Advocacy Blog
           </h1>
           <p className="text-lg text-text-muted">
-            Expert insights, practical guidance, and empowering resources for parents 
+            Expert insights, practical guidance, and empowering resources for parents
             navigating the IEP process and special education system.
           </p>
         </div>
-      </Section>
-
-      {/* Blog Posts Grid */}
-      <Section bg="primary">
         <div className="max-w-6xl mx-auto">
           {blogPosts.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
