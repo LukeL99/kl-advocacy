@@ -23,7 +23,7 @@ export default function Navbar() {
         {/* Top bar: logo left, phone + social right */}
         <div className="flex items-center justify-between py-3">
           <Link to="/" className="shrink-0">
-            <img src="/logo-vertical.png" alt="Access Educational Advocacy" className="h-16 md:h-20 w-auto" />
+            <img src="/logo-vertical.png" alt="Access Educational Advocacy" className="h-20 md:h-28 w-auto" />
           </Link>
 
           {/* Right side: social + phone (desktop) */}
