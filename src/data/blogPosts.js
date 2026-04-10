@@ -373,4 +373,136 @@ export const blogPosts = [
       ],
     },
   },
+  {
+    slug: 'understanding-eligibility',
+    image: '/images/blog-eligibility-meeting.png',
+    title: 'Understanding Eligibility: How Schools Decide if Your Child Qualifies for Special Education',
+    excerpt: "The evaluation is done and the reports have been reviewed. Understanding how schools actually make the eligibility decision helps you walk in as an informed participant, not just someone waiting to hear a verdict.",
+    author: 'Karlie, SLP and Educational Advocate at Access Educational Advocacy',
+    date: '2026-04-09',
+    categories: ['Special Education', 'Parent Resources'],
+    tags: ['eligibility', 'special education', 'IDEA', 'IEP eligibility', 'parent rights'],
+    readTime: '10 min read',
+    resources: [
+      { title: 'Questions to Ask at an Eligibility Meeting', path: '/full-library', gated: true },
+      { title: 'Know Your Rights: Procedural Safeguards Summary', path: '/resources/procedural-safeguards-summary.pdf', gated: false },
+      { title: 'IEP vs 504: What\'s the Difference?', path: '/resources/iep-vs-504.pdf', gated: false },
+      { title: 'Know The Terms: Special Education Glossary', path: '/resources/special-education-glossary.pdf', gated: false },
+    ],
+    content: {
+      intro: [
+        'The evaluation is done and the reports have been reviewed. Now you\'re sitting across from a team of people who are about to tell you whether your child qualifies for special education services.',
+        'That moment carries a lot of weight, no matter which way it goes.',
+        'Whether you\'re hoping for a yes or bracing for a no, understanding how schools actually make this decision helps you walk in as an informed participant, not just someone waiting to hear a verdict.',
+        'Here\'s how it works.',
+      ],
+      sections: [
+        {
+          heading: 'Eligibility Is Not the Same as a Diagnosis',
+          intro: [
+            'This is the most important thing to understand before anything else.',
+            'A diagnosis from a doctor, psychologist, or outside specialist does not automatically make a child eligible for special education. It matters, and the school is required to consider it, but it is not the deciding factor.',
+            'Schools operate under a federal law called IDEA - the Individuals with Disabilities Education Act. Under IDEA, eligibility is determined by a team, using a specific set of criteria. The evaluation results are one piece of that picture. Your input is another. The team\'s observations and professional judgment are part of it too.',
+            'No single data point makes the call. The team makes the call, together - and you are part of that team.',
+          ],
+        },
+        {
+          heading: 'The Three-Part Test',
+          intro: [
+            'To qualify for special education, a child has to meet three criteria. The team will work through each of these at the eligibility meeting.',
+          ],
+          subsections: [
+            {
+              subheading: 'The Three Criteria',
+              list: [
+                'Does your child have a disability that falls under one of the federally defined eligibility categories? IDEA recognizes 13 categories including Specific Learning Disability, Speech or Language Impairment, Autism, Other Health Impairment, Emotional Disturbance, Intellectual Disability, and others.',
+                'Is that disability adversely affecting your child\'s educational performance? A child can have a diagnosed disability and still not qualify if the disability isn\'t meaningfully impacting how they access or succeed in school. The school is asking whether the difficulty is rising to a level that requires specially designed instruction.',
+                'Are the struggles primarily caused by the disability, and not by something else? This is called exclusionary criteria. Even if criteria one and two are met, the team has to rule out other explanations - things like limited instructional opportunity, environmental factors, or a language difference.',
+              ],
+              afterList: [
+                'The exclusionary criteria piece is especially important for multilingual families. A child who is still developing English proficiency may score in ways that look like a disability on certain assessments, when they\'re actually showing the very normal process of learning a second language. The team is legally required to account for that distinction.',
+                'This isn\'t the school looking for reasons to say no. It\'s a safeguard built into the law to make sure kids get the right support for the right reasons.',
+              ],
+            },
+          ],
+        },
+        {
+          heading: 'The 13 Eligibility Categories',
+          intro: [
+            'You don\'t need to memorize all of these, but it helps to know they exist and that your child\'s evaluation was designed to look at whether any of them apply.',
+          ],
+          subsections: [
+            {
+              subheading: 'Federal Eligibility Categories Under IDEA',
+              list: [
+                'Specific Learning Disability (SLD)',
+                'Speech or Language Impairment',
+                'Autism Spectrum Disorder',
+                'Other Health Impairment (OHI) - this is often where ADHD falls',
+                'Emotional Disturbance',
+                'Intellectual Disability',
+                'Developmental Delay (for younger children, typically ages 3-9)',
+                'Deaf-Blindness',
+                'Deafness',
+                'Hearing Impairment',
+                'Visual Impairment, including Blindness',
+                'Orthopedic Impairment',
+                'Traumatic Brain Injury',
+                'Multiple Disabilities',
+              ],
+              afterList: [
+                'The categories that come up most often for school-age children are Specific Learning Disability, Speech or Language Impairment, Autism, Other Health Impairment, and Emotional Disturbance.',
+                'One more thing worth knowing: a child can qualify under more than one category. A primary disability is the one that most significantly impacts a child\'s education and drives the services they receive. But a child can also have secondary or even tertiary eligibility categories that the team identifies and accounts for in the IEP. This is common - many kids have overlapping needs, and the eligibility process is designed to capture the full picture, not just the most obvious piece of it.',
+              ],
+            },
+          ],
+        },
+        {
+          heading: 'If Your Child Qualifies',
+          intro: [
+            'A finding of eligible is not something that happens to your child. It\'s the beginning of a conversation about how to support them.',
+            'From here, the team moves into building an IEP - an Individualized Education Program. That\'s the actual plan: the goals, the services, where and how they\'ll be delivered, and what supports your child needs to access their education. You will be part of building that plan. You\'ll have the right to review it, ask questions, request changes, and revisit it over time.',
+            'A quick word on the phrase "special education," because it still carries a stigma it doesn\'t deserve. Special education is not a classroom in the back of the building. It is a set of specially designed instruction and services, tailored to your child\'s individual needs, delivered in whatever setting makes the most sense for them. For many kids that means staying in their regular classroom the vast majority of the day. The point is that it\'s built around your child.',
+          ],
+          pullQuote: 'Special education is not a place. It\'s a plan - one you help create.',
+        },
+        {
+          heading: 'Your Rights at This Meeting',
+          subsections: [
+            {
+              subheading: 'Key Rights at the Eligibility Meeting',
+              list: [
+                'You are a required and equal member of the eligibility team',
+                'You must receive evaluation reports before the meeting, generally at least three school days prior. Make sure to request these if you live in a state that doesn\'t require schools to send them prior to the meeting.',
+                'You can bring someone with you for support - a family member, friend, or advocate',
+                'You have the right to ask questions and take time before signing anything',
+                'You can disagree with the eligibility decision',
+              ],
+            },
+          ],
+        },
+        {
+          heading: 'What to Do Before the Meeting',
+          actionPlan: {
+            title: 'Your Action Plan',
+            steps: [
+              'Read the evaluation reports carefully and write down anything you don\'t understand',
+              'Note whether you agree or disagree with what the reports describe about your child',
+              'Prepare a few observations from home that the team may not be able to see in a school setting',
+              'Bring someone with you if you think you\'ll need support',
+              'Remember that you don\'t have to sign anything at the meeting if you need more time to review',
+            ],
+          },
+          cta: {
+            text: 'If you\'d like to talk through the evaluation results before the eligibility meeting, that\'s exactly what a consultation is for. We can look at the reports together, figure out what questions to bring, and make sure you\'re walking in prepared.',
+            buttonText: 'Schedule a Free 15-Minute Consultation',
+            buttonUrl: '/contact?interest=free-consultation',
+          },
+          closing: [
+            'The eligibility meeting ends one of two ways - and both of them come with next steps. If your child was found eligible, the IEP process begins. If the answer was no, that\'s not where the road ends either.',
+          ],
+        },
+      ],
+    },
+  },
 ];
