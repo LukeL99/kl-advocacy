@@ -171,6 +171,15 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div className="flex justify-center">
+            <div className="aspect-square max-w-sm w-full rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src="/karlie-headshot.png"
+                alt="Karlie Libraro, M.S., CCC-SLP"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
         </div>
       </Section>
 
