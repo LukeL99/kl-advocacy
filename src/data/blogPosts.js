@@ -22,6 +22,7 @@ export const blogPosts = [
           intro: [
             'The school is required to send you a written invitation at least 10-14 days before the meeting. It should include the date, time, and location, the purpose of the meeting, and who will be attending (by title - like "special education teacher" or "speech-language pathologist").',
             'If the date doesn\'t work for you, say so. You have the right to request a different time, and the school is required to work with your schedule.',
+            'Some states, including Virginia and Illinois, require the school to send you a draft of the IEP 2-3 school days before the meeting so you can review it ahead of time. Not every state has this requirement, so check your state\'s rules or simply ask the school to send you any draft documents in advance. Reviewing the IEP before you walk in gives you time to process the information, write down questions, and show up ready to have a conversation instead of reacting in the moment.',
           ],
         },
         {
