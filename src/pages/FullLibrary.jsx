@@ -1,9 +1,206 @@
 import { useState } from 'react';
-import { Lock, Download, FileText, Flag, HelpCircle } from 'lucide-react';
+import { Lock, Download, FileText, Flag, HelpCircle, X, CheckCircle, MessageSquare } from 'lucide-react';
 import Section, { SectionHeader } from '../components/Section';
 import Button from '../components/Button';
 
 const CORRECT_PASSWORD = 'access';
+
+// Mailchimp config
+const MC_U = 'f60b2d5f1904ee6928eb2c5dd';
+const MC_ID = 'dfdac89c42';
+const MC_POST_URL = 'https://myaccessadvocacy.us19.list-manage.com/subscribe/post';
+
+function subscribeToMailchimp({ email, firstName, lastName }) {
+  const iframeName = `mc_iframe_${Date.now()}`;
+  const iframe = document.createElement('iframe');
+  iframe.name = iframeName;
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = MC_POST_URL;
+  form.target = iframeName;
+  form.style.display = 'none';
+
+  const fields = { u: MC_U, id: MC_ID, EMAIL: email, FNAME: firstName, LNAME: lastName };
+  for (const [key, value] of Object.entries(fields)) {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value;
+    form.appendChild(input);
+  }
+
+  document.body.appendChild(form);
+  form.submit();
+
+  setTimeout(() => {
+    iframe.remove();
+    form.remove();
+  }, 3000);
+}
+
+function RequestModal({ isOpen, onClose }) {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    const formData = new FormData(e.target);
+    const firstName = formData.get('firstName');
+    const lastName = formData.get('lastName');
+    const email = formData.get('email');
+    const topic = formData.get('topic');
+
+    try {
+      // Send topic request to gmail via FormSubmit
+      const response = await fetch('https://formsubmit.co/ajax/myaccessadvocacy@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Resource Topic Request',
+          name: `${firstName} ${lastName}`,
+          email,
+          topic,
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed to send request');
+
+      // Add to Mailchimp in background
+      subscribeToMailchimp({ email, firstName, lastName });
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (!isOpen) {
+    if (submitted) setSubmitted(false);
+    if (error) setError('');
+    return null;
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+
+      <div
+        className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 md:p-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-text-muted hover:bg-gray-100 transition-colors"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {submitted ? (
+          <div className="text-center py-4">
+            <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
+            <h3 className="font-heading text-2xl text-text-primary mb-2">Request sent!</h3>
+            <p className="text-text-muted">Thanks for the suggestion. I&apos;ll let you know when it&apos;s available.</p>
+            <button
+              onClick={onClose}
+              className="mt-6 px-6 py-2.5 rounded-full bg-primary text-white font-medium hover:bg-primary-dark transition-colors"
+            >
+              Got it
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="text-center mb-6">
+              <div className="w-14 h-14 bg-accent/15 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MessageSquare className="w-7 h-7 text-accent" />
+              </div>
+              <h3 className="font-heading text-2xl text-text-primary mb-2">
+                Request a Topic
+              </h3>
+              <p className="text-text-muted text-sm">
+                What resource would help you the most? Let me know and I&apos;ll work on creating it.
+              </p>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="req-firstName" className="block text-sm font-medium text-text-secondary mb-1">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="req-firstName"
+                    name="firstName"
+                    required
+                    placeholder="First name"
+                    className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="req-lastName" className="block text-sm font-medium text-text-secondary mb-1">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="req-lastName"
+                    name="lastName"
+                    required
+                    placeholder="Last name"
+                    className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="req-email" className="block text-sm font-medium text-text-secondary mb-1">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="req-email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="req-topic" className="block text-sm font-medium text-text-secondary mb-1">
+                  What topic or resource would be helpful?
+                </label>
+                <textarea
+                  id="req-topic"
+                  name="topic"
+                  required
+                  rows={3}
+                  placeholder="e.g., How to prepare for a transition meeting..."
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors resize-none"
+                />
+              </div>
+              {error && (
+                <p className="text-red-600 text-sm text-center">{error}</p>
+              )}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full px-6 py-3 rounded-full bg-accent text-white font-medium text-base hover:bg-[#b8854f] transition-colors disabled:opacity-60"
+              >
+                {loading ? 'Sending...' : 'Submit Request'}
+              </button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
 
 const gatedResources = [
   {
@@ -33,6 +230,7 @@ export default function FullLibrary() {
   const [password, setPassword] = useState('');
   const [unlocked, setUnlocked] = useState(false);
   const [error, setError] = useState('');
+  const [showRequestModal, setShowRequestModal] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -90,11 +288,21 @@ export default function FullLibrary() {
 
   return (
     <>
+      <RequestModal isOpen={showRequestModal} onClose={() => setShowRequestModal(false)} />
+
       <Section bg="primary">
         <SectionHeader
           title="Full Resource Library"
           subtitle="Exclusive guides and tools for subscribers. More resources are added regularly."
         />
+        <p className="text-center -mt-8 mb-12">
+          <button
+            onClick={() => setShowRequestModal(true)}
+            className="text-accent hover:text-[#b8854f] font-medium transition-colors underline underline-offset-2"
+          >
+            Don&apos;t see what you&apos;re looking for? Request a topic here.
+          </button>
+        </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {gatedResources.map((resource) => (
