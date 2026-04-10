@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Lock, Download, FileText, AlertTriangle, HelpCircle } from 'lucide-react';
+import { Lock, Download, FileText, Flag, HelpCircle } from 'lucide-react';
 import Section, { SectionHeader } from '../components/Section';
 import Button from '../components/Button';
 
@@ -21,7 +21,7 @@ const gatedResources = [
     filename: 'iep-meeting-questions',
   },
   {
-    icon: AlertTriangle,
+    icon: Flag,
     title: 'IEP Meeting Red Flags Checklist',
     description:
       'A checklist of warning signs to watch for during the meeting and in the IEP document itself. Trust your instincts and know what to look for.',
