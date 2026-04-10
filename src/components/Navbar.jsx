@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Facebook, Instagram } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -21,9 +21,9 @@ export default function Navbar() {
     <nav className="bg-bg-primary/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Logo centered on top */}
-        <div className="flex justify-center pt-2 pb-1">
+        <div className="flex justify-center pt-3 pb-2">
           <Link to="/">
-            <img src="/logo-vertical.png" alt="Access Educational Advocacy" className="h-16 md:h-20 w-auto" />
+            <img src="/logo-vertical.png" alt="Access Educational Advocacy" className="h-20 md:h-28 w-auto" />
           </Link>
           {/* Mobile menu button */}
           <button
@@ -34,8 +34,8 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Nav links spread across below logo */}
-        <div className="hidden lg:flex items-center justify-center pb-3">
+        {/* Nav links + social + phone */}
+        <div className="hidden lg:flex items-center justify-center gap-4 pb-3">
           <div className="flex items-center border border-primary/30 rounded-full overflow-hidden">
             {navLinks.map((link, i) => (
               <Link
@@ -53,9 +53,29 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://www.facebook.com/myaccessadvocacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-9 h-9 rounded-full text-primary hover:bg-primary/10 transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.instagram.com/myaccessadvocacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-9 h-9 rounded-full text-primary hover:bg-primary/10 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-4 h-4" />
+            </a>
+          </div>
           <a
             href="tel:804-420-2273"
-            className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-medium text-sm hover:bg-primary-dark transition-colors duration-200 ml-4"
+            className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-medium text-sm hover:bg-primary-dark transition-colors duration-200"
           >
             <Phone className="w-4 h-4" />
             <span>(804) 420-2273</span>
@@ -80,9 +100,29 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              <div className="flex items-center justify-center gap-4 mt-4">
+                <a
+                  href="https://www.facebook.com/myaccessadvocacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/myaccessadvocacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
               <a
                 href="tel:804-420-2273"
-                className="flex items-center justify-center gap-2 mt-4 bg-primary text-white px-5 py-3 rounded-full font-medium text-sm"
+                className="flex items-center justify-center gap-2 mt-3 bg-primary text-white px-5 py-3 rounded-full font-medium text-sm"
               >
                 <Phone className="w-4 h-4" />
                 <span>(804) 420-2273</span>

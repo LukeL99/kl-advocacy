@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -9,10 +9,30 @@ export default function Footer() {
           <div>
             <img src="/logo.png" alt="Access Educational Advocacy" className="h-16 w-auto mb-4 brightness-0 invert" />
             <p className="font-tagline text-blue-200 text-sm mb-3">Navigating education, together.</p>
-            <p className="text-blue-100 text-sm leading-relaxed">
-              Helping families access their child's education with confidence and clarity. 
+            <p className="text-blue-100 text-sm leading-relaxed mb-4">
+              Helping families access their child's education with confidence and clarity.
               Your child deserves the best possible education.
             </p>
+            <div className="flex gap-3">
+              <a
+                href="https://www.facebook.com/myaccessadvocacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/myaccessadvocacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
           <div>
