@@ -306,18 +306,6 @@ export default function Services() {
         </div>
       </Section>
 
-      {/* Parent Education Callout */}
-      <Section bg="primary">
-        <div className="text-center">
-          <p className="text-text-muted text-lg mb-6">
-            Not ready for full advocacy? Just want to understand the process first?
-          </p>
-          <Button to="/parent-education" variant="outline" size="lg">
-            Explore Parent Education
-          </Button>
-        </div>
-      </Section>
-
       {/* Pricing Guide CTA */}
       <section className="relative py-16 md:py-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, #C4956A 0%, #d4a87a 50%, #e0c4a0 100%)' }}>
         <div className="absolute -top-6 -left-6 w-32 h-32 bg-white/10 rounded-full" />
@@ -342,6 +330,18 @@ export default function Services() {
           <p className="text-white/60 text-sm mt-4">Free. No spam, ever.</p>
         </div>
       </section>
+
+      {/* Parent Education Callout */}
+      <Section bg="primary">
+        <div className="text-center">
+          <p className="text-text-muted text-lg mb-6">
+            Not ready for full advocacy? Just want to understand the process first?
+          </p>
+          <Button to="/parent-education" variant="outline" size="lg">
+            Explore Parent Education
+          </Button>
+        </div>
+      </Section>
 
       {/* Not Sure What You Need — kept as-is */}
       <Section bg="dark">
