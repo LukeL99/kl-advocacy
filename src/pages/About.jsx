@@ -34,9 +34,17 @@ export default function About() {
               to escalate, but to make sure every family walks in informed, confident, and ready to 
               advocate for their child.
             </p>
-            <p className="text-text-muted">
-              Because every student deserves access to their education. And every parent deserves 
+            <p className="text-text-muted mb-6">
+              Because every student deserves access to their education. And every parent deserves
               to understand how to get it for them.
+            </p>
+            <p className="text-text-muted mb-6">
+              Access Educational Advocacy is a woman-owned small business, and I&apos;m proud to
+              serve families virtually across the country, with specialized expertise in Virginia
+              and Illinois.
+            </p>
+            <p className="text-text-muted font-tagline text-lg">
+              Navigating education, together.
             </p>
           </div>
           <div className="flex justify-center">
