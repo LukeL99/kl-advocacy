@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Phone, FileText, Users, Package, Download, CheckCircle } from 'lucide-react';
+import { Phone, FileText, Users, Package, Download, CheckCircle, X, Sparkles } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
@@ -57,7 +57,7 @@ const services = [
     price: null,
     cta: 'Find Out More',
     interest: 'packages',
-    scrollTo: 'pricing-guide',
+    openPricingModal: true,
   },
 ];
 
@@ -108,7 +108,7 @@ function subscribeToMailchimp({ email, firstName, lastName }) {
   });
 }
 
-function PricingGuideForm() {
+function PricingGuideModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -124,17 +124,14 @@ function PricingGuideForm() {
     const email = form.email.value.trim();
 
     try {
-      // Subscribe to Mailchimp + send welcome email in parallel
-      const siteUrl = window.location.origin;
-      await Promise.all([
-        subscribeToMailchimp({ email, firstName, lastName }),
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-          to_email: email,
-          first_name: firstName,
-          download_link: `${siteUrl}/AEA-Services-and-Pricing-Guide.pdf`,
-        }, EMAILJS_PUBLIC_KEY),
-      ]);
+      await subscribeToMailchimp({ email, firstName, lastName });
       setSubmitted(true);
+      const siteUrl = window.location.origin;
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: email,
+        first_name: firstName,
+        download_link: `${siteUrl}/AEA-Services-and-Pricing-Guide.pdf`,
+      }, EMAILJS_PUBLIC_KEY).catch(() => {});
     } catch (err) {
       setError(err.message);
     } finally {
@@ -142,90 +139,126 @@ function PricingGuideForm() {
     }
   };
 
-  if (submitted) {
-    return (
-      <div className="text-center py-8">
-        <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-        <h3 className="font-heading text-xl text-text-primary mb-2">You&apos;re all set!</h3>
-        <p className="text-text-muted mb-6">
-          Check your inbox for a copy of the guide. In the meantime, you can download it right now:
-        </p>
-        <a
-          href="/AEA-Services-and-Pricing-Guide.pdf"
-          download
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-colors"
-        >
-          <Download className="w-5 h-5" />
-          Download Pricing Guide
-        </a>
-        <p className="text-text-muted/60 text-sm mt-4">
-          Didn&apos;t get the email? Check your spam folder or{' '}
-          <a href="/contact" className="text-primary underline underline-offset-2">contact us</a>.
-        </p>
-      </div>
-    );
+  if (!isOpen) {
+    if (submitted) setSubmitted(false);
+    if (error) setError(null);
+    return null;
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="firstName" className="block text-sm font-medium text-text-secondary mb-1">
-            First Name
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            required
-            className="w-full px-4 py-2.5 rounded-lg border border-border bg-bg-primary text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-            placeholder="First name"
-          />
-        </div>
-        <div>
-          <label htmlFor="lastName" className="block text-sm font-medium text-text-secondary mb-1">
-            Last Name
-          </label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            required
-            className="w-full px-4 py-2.5 rounded-lg border border-border bg-bg-primary text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-            placeholder="Last name"
-          />
-        </div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      <div
+        className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 md:p-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-text-muted hover:bg-gray-100 transition-colors"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {submitted ? (
+          <div className="text-center py-4">
+            <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
+            <h3 className="font-heading text-2xl text-text-primary mb-2">You&apos;re all set!</h3>
+            <p className="text-text-muted mb-6">
+              Check your inbox for a copy of the guide. You can also download it right now:
+            </p>
+            <a
+              href="/AEA-Services-and-Pricing-Guide.pdf"
+              download
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-white font-medium hover:bg-[#b8854f] transition-colors"
+            >
+              <Download className="w-5 h-5" />
+              Download Pricing Guide
+            </a>
+          </div>
+        ) : (
+          <>
+            <div className="text-center mb-6">
+              <div className="w-14 h-14 bg-accent/15 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Download className="w-7 h-7 text-accent" />
+              </div>
+              <h3 className="font-heading text-2xl text-text-primary mb-2">
+                Get the Full Pricing Guide
+              </h3>
+              <p className="text-text-muted text-sm">
+                Enter your info and we&apos;ll send our complete Services &amp; Pricing guide directly to your inbox.
+              </p>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="pg-firstName" className="block text-sm font-medium text-text-secondary mb-1">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="pg-firstName"
+                    name="firstName"
+                    required
+                    className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                    placeholder="First name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="pg-lastName" className="block text-sm font-medium text-text-secondary mb-1">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="pg-lastName"
+                    name="lastName"
+                    required
+                    className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                    placeholder="Last name"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="pg-email" className="block text-sm font-medium text-text-secondary mb-1">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="pg-email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+                  placeholder="you@example.com"
+                />
+              </div>
+              {error && (
+                <div className="flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
+                  <span className="shrink-0 mt-0.5">⚠️</span>
+                  <span>{error}</span>
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full px-6 py-3 rounded-full bg-accent text-white font-medium text-base hover:bg-[#b8854f] transition-colors disabled:opacity-60"
+              >
+                {loading ? 'Sending...' : 'Send Me the Guide'}
+              </button>
+              <p className="text-text-muted/50 text-xs text-center">No spam. Unsubscribe anytime.</p>
+            </form>
+          </>
+        )}
       </div>
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">
-          Email Address
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          className="w-full px-4 py-2.5 rounded-lg border border-border bg-bg-primary text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-          placeholder="you@example.com"
-        />
-      </div>
-      {error && (
-        <div className="flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
-          <span className="shrink-0 mt-0.5">⚠️</span>
-          <span>{error}</span>
-        </div>
-      )}
-      <Button type="submit" variant="primary" size="lg" className="w-full" disabled={loading}>
-        {loading ? 'Sending...' : 'Send Me the Guide'}
-        {!loading && <Download className="w-5 h-5" />}
-      </Button>
-    </form>
+    </div>
   );
 }
 
 export default function Services() {
+  const [showPricingModal, setShowPricingModal] = useState(false);
+
   return (
     <>
+      <PricingGuideModal isOpen={showPricingModal} onClose={() => setShowPricingModal(false)} />
+
       <Section bg="secondary">
         <SectionHeader
           title="Services"
@@ -255,9 +288,9 @@ export default function Services() {
                 {service.price && (
                   <p className="font-heading text-primary mb-4">{service.price}</p>
                 )}
-                {service.scrollTo ? (
+                {service.openPricingModal ? (
                   <button
-                    onClick={() => document.getElementById(service.scrollTo)?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => setShowPricingModal(true)}
                     className="w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors font-medium text-sm"
                   >
                     {service.cta}
@@ -285,19 +318,30 @@ export default function Services() {
         </div>
       </Section>
 
-      {/* Gated Pricing Guide Download */}
-      <Section bg="muted" id="pricing-guide">
-        <div className="max-w-2xl mx-auto text-center">
-          <Download className="w-10 h-10 text-primary mx-auto mb-4" />
-          <h2 className="font-heading text-3xl text-text-primary mb-3">
+      {/* Pricing Guide CTA */}
+      <section className="relative py-16 md:py-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, #C4956A 0%, #d4a87a 50%, #e0c4a0 100%)' }}>
+        <div className="absolute -top-6 -left-6 w-32 h-32 bg-white/10 rounded-full" />
+        <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-white/10 rounded-full" />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+            <Download className="w-8 h-8 text-white" />
+          </div>
+          <h2 className="font-heading text-3xl md:text-4xl text-white mb-4 drop-shadow-sm">
             Get the Full Pricing Guide
           </h2>
-          <p className="text-text-muted mb-8">
-            Enter your information below and we&apos;ll send our complete Services &amp; Pricing guide directly to your inbox.
+          <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+            Want all the details? Get our complete Services &amp; Pricing guide sent directly to your inbox.
           </p>
-          <PricingGuideForm />
+          <button
+            onClick={() => setShowPricingModal(true)}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#2C4A6E] font-heading font-bold text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+          >
+            <Sparkles className="w-5 h-5" />
+            Send Me the Guide
+          </button>
+          <p className="text-white/60 text-sm mt-4">Free. No spam, ever.</p>
         </div>
-      </Section>
+      </section>
 
       {/* Not Sure What You Need — kept as-is */}
       <Section bg="dark">
