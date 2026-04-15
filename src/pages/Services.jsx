@@ -515,7 +515,18 @@ export default function Services() {
             Send Me the Guide
           </button>
           <p className="text-white/60 text-sm mt-4">Free. No spam, ever.</p>
-          <p className="font-tagline text-white/50 text-sm mt-8">Transparent pricing. No surprises. Just support.</p>
+          <div className="mt-10 pt-6 border-t border-white/15 flex items-center justify-center gap-3 flex-wrap">
+            <Heart className="w-4 h-4 text-white/40 shrink-0" />
+            <p className="font-tagline text-white/50 text-sm">
+              Sliding scale pricing is available for families who need it.
+            </p>
+            <button
+              onClick={() => setShowSlidingScaleModal(true)}
+              className="text-white/70 text-sm underline underline-offset-2 hover:text-white transition-colors"
+            >
+              Request here
+            </button>
+          </div>
         </div>
       </section>
 
@@ -528,27 +539,6 @@ export default function Services() {
           <Button to="/parent-education" variant="outline" size="lg">
             Explore Parent Education
           </Button>
-        </div>
-      </Section>
-
-      {/* Sliding Scale */}
-      <Section bg="muted">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5">
-            <Heart className="w-6 h-6 text-primary" />
-          </div>
-          <h2 className="font-heading text-2xl text-text-primary mb-4">
-            Sliding Scale Available
-          </h2>
-          <p className="text-text-muted leading-relaxed mb-6">
-            At Access Educational Advocacy, we believe every family deserves knowledgeable support when navigating the IEP and special education process, regardless of income. A sliding scale fee structure is available to ensure our services remain accessible to families who need them most.
-          </p>
-          <button
-            onClick={() => setShowSlidingScaleModal(true)}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-primary text-primary font-medium hover:bg-primary hover:text-white transition-colors"
-          >
-            Request Sliding Scale Pricing
-          </button>
         </div>
       </Section>
 
