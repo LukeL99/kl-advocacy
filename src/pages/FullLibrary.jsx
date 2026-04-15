@@ -231,6 +231,13 @@ const gatedResources = [
       'A breakdown of all 13 federal eligibility categories under IDEA, what each one means, and how schools use them to determine if your child qualifies for special education.',
     filename: 'eligibility-categories',
   },
+  {
+    icon: FileText,
+    title: 'LRE: What It Means and What to Ask',
+    description:
+      'A quick reference on Least Restrictive Environment -- the placement spectrum from general ed to more restrictive settings, what drives the decision, and questions to ask your IEP team.',
+    filename: 'lre-guide',
+  },
 ];
 
 export default function FullLibrary() {
