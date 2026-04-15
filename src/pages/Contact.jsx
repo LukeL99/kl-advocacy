@@ -203,11 +203,12 @@ export default function Contact() {
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">Tell me a little about your situation (optional)</label>
+                    <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">Tell me a little about your situation *</label>
                     <textarea
                       id="message"
                       name="message"
                       rows={4}
+                      required
                       defaultValue={topicParam ? `I'm interested in the Parent Education session: ${topicParam}` : ''}
                       className="w-full px-4 py-3 rounded-xl border border-border-muted bg-bg-secondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary resize-none"
                       placeholder="What's going on with your child's education? Any upcoming meetings or concerns?"

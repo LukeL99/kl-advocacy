@@ -209,12 +209,13 @@ function ContactModal({ isOpen, onClose, initialInterest = '', prefillMessage = 
               </div>
               <div>
                 <label htmlFor="cm-message" className="block text-sm font-medium text-text-secondary mb-1">
-                  Tell me a little about your situation (optional)
+                  Tell me a little about your situation *
                 </label>
                 <textarea
                   id="cm-message"
                   name="message"
                   rows={3}
+                  required
                   defaultValue={prefillMessage}
                   placeholder="What's going on with your child's education? Any upcoming meetings or concerns?"
                   className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none"
