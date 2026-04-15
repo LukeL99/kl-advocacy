@@ -299,8 +299,8 @@ export default function FullLibrary() {
 
       <Section bg="primary">
         <SectionHeader
-          title="Full Resource Library"
-          subtitle="Exclusive guides and tools for subscribers. More resources are added regularly."
+          title="Resource Library"
+          subtitle="Guides and tools to help you feel confident every step of the way."
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {gatedResources.map((resource) => (
