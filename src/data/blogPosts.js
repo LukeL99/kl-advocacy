@@ -129,6 +129,7 @@ export const blogPosts = [
     tags: ['school evaluation', 'special education', 'parent rights', 'IEP eligibility'],
     readTime: '8 min read',
     resources: [
+      { title: 'Understanding the 13 IDEA Eligibility Categories', path: '/full-library', gated: true },
       { title: 'What Is a PWN?', path: '/resources/what-is-a-pwn.pdf', gated: false },
       { title: 'Know Your Rights: Procedural Safeguards Summary', path: '/resources/procedural-safeguards-summary.pdf', gated: false },
       { title: 'IEP vs 504: What\'s the Difference?', path: '/resources/iep-vs-504.pdf', gated: false },
@@ -261,6 +262,7 @@ export const blogPosts = [
     readTime: '9 min read',
     resources: [
       { title: 'Questions to Ask at an Eligibility Meeting', path: '/full-library', gated: true },
+      { title: 'Understanding the 13 IDEA Eligibility Categories', path: '/full-library', gated: true },
       { title: 'Know Your Rights: Procedural Safeguards Summary', path: '/resources/procedural-safeguards-summary.pdf', gated: false },
       { title: 'IEP vs 504: What\'s the Difference?', path: '/resources/iep-vs-504.pdf', gated: false },
     ],
@@ -384,6 +386,7 @@ export const blogPosts = [
     tags: ['eligibility', 'special education', 'IDEA', 'IEP eligibility', 'parent rights'],
     readTime: '10 min read',
     resources: [
+      { title: 'Understanding the 13 IDEA Eligibility Categories', path: '/full-library', gated: true },
       { title: 'Questions to Ask at an Eligibility Meeting', path: '/full-library', gated: true },
       { title: 'Know Your Rights: Procedural Safeguards Summary', path: '/resources/procedural-safeguards-summary.pdf', gated: false },
       { title: 'IEP vs 504: What\'s the Difference?', path: '/resources/iep-vs-504.pdf', gated: false },

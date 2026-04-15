@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Lock, Download, FileText, Flag, HelpCircle, X, CheckCircle, MessageSquare } from 'lucide-react';
+import { Lock, Download, FileText, Flag, HelpCircle, BookOpen, X, CheckCircle, MessageSquare } from 'lucide-react';
 import Section, { SectionHeader } from '../components/Section';
 import Button from '../components/Button';
 
@@ -223,6 +223,13 @@ const gatedResources = [
     description:
       'A checklist of warning signs to watch for during the meeting and in the IEP document itself. Trust your instincts and know what to look for.',
     filename: 'iep-red-flags',
+  },
+  {
+    icon: BookOpen,
+    title: 'Understanding the 13 IDEA Eligibility Categories',
+    description:
+      'A breakdown of all 13 federal eligibility categories under IDEA, what each one means, and how schools use them to determine if your child qualifies for special education.',
+    filename: 'eligibility-categories',
   },
 ];
 
