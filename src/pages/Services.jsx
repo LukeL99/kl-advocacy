@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Phone, FileText, Users, Package, Download, CheckCircle, X, Sparkles } from 'lucide-react';
+import { Phone, FileText, Users, Package, Download, CheckCircle, X, Sparkles, Heart } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
 
@@ -252,12 +252,199 @@ function PricingGuideModal({ isOpen, onClose }) {
   );
 }
 
+function SlidingScaleModal({ isOpen, onClose }) {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const formData = new FormData(e.target);
+    const firstName = formData.get('firstName');
+    const lastName = formData.get('lastName');
+    const email = formData.get('email');
+    const familySize = formData.get('familySize');
+    const householdIncome = formData.get('householdIncome');
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/myaccessadvocacy@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Sliding Scale Request',
+          name: `${firstName} ${lastName}`,
+          email,
+          'Family Size': familySize,
+          'Total Household Income': householdIncome,
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed to send request');
+
+      subscribeToMailchimp({ email, firstName, lastName });
+      setSubmitted(true);
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (!isOpen) {
+    if (submitted) setSubmitted(false);
+    if (error) setError(null);
+    return null;
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      <div
+        className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 md:p-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-text-muted hover:bg-gray-100 transition-colors"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {submitted ? (
+          <div className="text-center py-4">
+            <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
+            <h3 className="font-heading text-2xl text-text-primary mb-2">Request received!</h3>
+            <p className="text-text-muted">I&apos;ll review your information and follow up with you personally within 1-2 business days.</p>
+            <button
+              onClick={onClose}
+              className="mt-6 px-6 py-2.5 rounded-full bg-primary text-white font-medium hover:bg-primary-dark transition-colors"
+            >
+              Got it
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="text-center mb-6">
+              <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="font-heading text-2xl text-text-primary mb-2">
+                Sliding Scale Request
+              </h3>
+              <p className="text-text-muted text-sm">
+                Fill out the form below and I&apos;ll follow up with a customized services agreement based on your household information.
+              </p>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="ss-firstName" className="block text-sm font-medium text-text-secondary mb-1">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="ss-firstName"
+                    name="firstName"
+                    required
+                    placeholder="First name"
+                    className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="ss-lastName" className="block text-sm font-medium text-text-secondary mb-1">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="ss-lastName"
+                    name="lastName"
+                    required
+                    placeholder="Last name"
+                    className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="ss-email" className="block text-sm font-medium text-text-secondary mb-1">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="ss-email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="ss-familySize" className="block text-sm font-medium text-text-secondary mb-1">
+                  Family Size
+                </label>
+                <select
+                  id="ss-familySize"
+                  name="familySize"
+                  required
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                >
+                  <option value="">Select family size</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7+">7+</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="ss-income" className="block text-sm font-medium text-text-secondary mb-1">
+                  Total Household Income
+                </label>
+                <select
+                  id="ss-income"
+                  name="householdIncome"
+                  required
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                >
+                  <option value="">Select income range</option>
+                  <option value="Under $25,000">Under $25,000</option>
+                  <option value="$25,000 - $35,000">$25,000 - $35,000</option>
+                  <option value="$35,000 - $50,000">$35,000 - $50,000</option>
+                  <option value="$50,000 - $65,000">$50,000 - $65,000</option>
+                  <option value="$65,000 - $80,000">$65,000 - $80,000</option>
+                  <option value="Over $80,000">Over $80,000</option>
+                </select>
+              </div>
+              {error && (
+                <p className="text-red-600 text-sm text-center">{error}</p>
+              )}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full px-6 py-3 rounded-full bg-primary text-white font-medium text-base hover:bg-primary-dark transition-colors disabled:opacity-60"
+              >
+                {loading ? 'Sending...' : 'Submit Request'}
+              </button>
+              <p className="text-text-muted/50 text-xs text-center">No documentation required. Self-reported.</p>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Services() {
   const [showPricingModal, setShowPricingModal] = useState(false);
+  const [showSlidingScaleModal, setShowSlidingScaleModal] = useState(false);
 
   return (
     <>
       <PricingGuideModal isOpen={showPricingModal} onClose={() => setShowPricingModal(false)} />
+      <SlidingScaleModal isOpen={showSlidingScaleModal} onClose={() => setShowSlidingScaleModal(false)} />
 
       <Section bg="secondary">
         <SectionHeader
@@ -328,6 +515,7 @@ export default function Services() {
             Send Me the Guide
           </button>
           <p className="text-white/60 text-sm mt-4">Free. No spam, ever.</p>
+          <p className="font-tagline text-white/50 text-sm mt-8">Transparent pricing. No surprises. Just support.</p>
         </div>
       </section>
 
@@ -343,7 +531,28 @@ export default function Services() {
         </div>
       </Section>
 
-      {/* Not Sure What You Need — kept as-is */}
+      {/* Sliding Scale */}
+      <Section bg="muted">
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5">
+            <Heart className="w-6 h-6 text-primary" />
+          </div>
+          <h2 className="font-heading text-2xl text-text-primary mb-4">
+            Sliding Scale Available
+          </h2>
+          <p className="text-text-muted leading-relaxed mb-6">
+            At Access Educational Advocacy, we believe every family deserves knowledgeable support when navigating the IEP and special education process, regardless of income. A sliding scale fee structure is available to ensure our services remain accessible to families who need them most.
+          </p>
+          <button
+            onClick={() => setShowSlidingScaleModal(true)}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-primary text-primary font-medium hover:bg-primary hover:text-white transition-colors"
+          >
+            Request Sliding Scale Pricing
+          </button>
+        </div>
+      </Section>
+
+      {/* Not Sure What You Need */}
       <Section bg="dark">
         <div className="text-center">
           <h2 className="font-heading text-3xl text-white mb-4">Not Sure What You Need?</h2>
