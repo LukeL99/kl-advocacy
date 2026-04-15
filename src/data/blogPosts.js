@@ -510,4 +510,97 @@ export const blogPosts = [
       ],
     },
   },
+  {
+    slug: 'child-not-eligible',
+    image: '/images/blog-not-eligible.png',
+    title: 'Your Child Didn\'t Qualify for Special Education. Now What?',
+    excerpt: "A not eligible finding is not the end of the road. Here's what it means, what your options are, and what you can do right now.",
+    author: 'Karlie, SLP and Educational Advocate at Access Educational Advocacy',
+    date: '2026-04-15',
+    categories: ['Special Education', 'Parent Resources'],
+    tags: ['eligibility', 'not eligible', '504 plan', 'IEE', 'parent rights'],
+    readTime: '8 min read',
+    resources: [
+      { title: 'Understanding the 13 IDEA Eligibility Categories', path: '/full-library', gated: true },
+      { title: 'Questions to Ask at an Eligibility Meeting', path: '/full-library', gated: true },
+      { title: 'IEP vs 504: What\'s the Difference?', path: '/resources/iep-vs-504.pdf', gated: false },
+      { title: 'Know Your Rights: Procedural Safeguards Summary', path: '/resources/procedural-safeguards-summary.pdf', gated: false },
+    ],
+    content: {
+      intro: [
+        'You sat through the eligibility meeting. You heard everything the team had to say. The answer was "not eligible."',
+        'Maybe you were expecting it, but maybe it blindsided you completely. Either way, a finding of not eligible can be a hard thing to sit with - especially when you know your child is struggling and you came into this process hoping for answers.',
+        'Here\'s what\'s important to understand: this is not the end of the road.',
+        'Not eligible does not mean not struggling or you were wrong to pursue an evaluation. It also does not mean there\'s nothing left to do.',
+      ],
+      sections: [
+        {
+          heading: 'You Can Disagree With the Decision',
+          intro: [
+            'If you believe the school got it wrong, you have options.',
+            'The most direct one is requesting an Independent Educational Evaluation, called an IEE. An IEE is an evaluation conducted by a qualified professional who is not employed by the school district. If you request one, the school must either fund it at public expense or initiate a due process hearing to defend their own evaluation.',
+            'An IEE gives you a second opinion from an outside party that wasn\'t a part of the school\'s original findings. If the independent evaluator sees something the school missed, that new information goes back to the team and the eligibility decision gets revisited.',
+            'You don\'t have to have a specific reason to request an IEE. You simply have to disagree with the school\'s evaluation and that\'s enough.',
+            'This does not mean that the school will agree with the findings, however. There will be a meeting to review the results and the team will make a decision to accept the findings or not.',
+          ],
+        },
+        {
+          heading: 'Your Child May Still Qualify for a 504 Plan',
+          intro: [
+            'Special education and 504 plans are two different tools, and a lot of families don\'t realize that not qualifying for one doesn\'t rule out the other.',
+            'A 504 plan comes from a different law - Section 504 of the Rehabilitation Act - and it has a broader definition of disability. Where IDEA requires that a disability adversely affect educational performance to the point of needing specially designed instruction, a 504 simply requires that a disability substantially limits a major life activity. Learning is a major life activity. So is concentrating, reading, communicating, and caring for oneself.',
+            'What a 504 provides is accommodations. Things like:',
+          ],
+          subsections: [
+            {
+              subheading: 'Common 504 Accommodations',
+              list: [
+                'Extended time on tests and assignments',
+                'Preferential seating',
+                'Reduced distraction testing environments',
+                'Modified assignment length',
+                'Breaks during the school day',
+                'Access to assistive technology',
+              ],
+              afterList: [
+                'A 504 doesn\'t come with the same level of support as an IEP, however. There are no specialized services, no goals, and no progress monitoring in the same formal way. For some students, though, accommodations are exactly what they need to access their education.',
+                'One thing parents often ask: does my child need a formal medical diagnosis to get a 504? The short answer is not necessarily. The law doesn\'t specify what form documentation has to take. What schools are looking for is evidence that a disability exists and is substantially limiting something. In practice, most schools want to see something from an outside provider - a diagnosis, a psychological evaluation, or a letter from a pediatrician or mental health provider. If you have any outside documentation at all, share it with the school. A formal diagnosis isn\'t always required, and families without one shouldn\'t assume the door is closed.',
+                'If your child has a documented diagnosis or disability and didn\'t qualify for special education, asking about 504 eligibility is a reasonable and worthwhile next step.',
+              ],
+            },
+          ],
+        },
+        {
+          heading: 'Needs Change. You Can Come Back.',
+          intro: [
+            'An eligibility decision is not permanent.',
+            'If your child\'s needs increase over time - if their grades drop, if they start refusing school, if a teacher raises new concerns - you can request a new evaluation. You can do this yourself, in writing, at any time. The school must then respond in writing - either agreeing to evaluate or explaining why they\'re declining. If they say no and you disagree with that decision, you have the right to challenge it. Keep documenting what you\'re seeing at home, keep the conversation open with teachers, and know that the door to this process is not closed behind you.',
+          ],
+        },
+        {
+          heading: 'What to Do Right Now',
+          actionPlan: {
+            title: 'Your Action Plan',
+            steps: [
+              'The school should have already provided the eligibility decision and reasoning in writing - if you didn\'t receive that, request it now',
+              'Review the evaluation reports carefully and note anything that feels inconsistent with what you know about your child',
+              'If you haven\'t already, ask about 504 eligibility - you can do this in a follow-up email or call if the meeting has already ended',
+              'If something in the decision doesn\'t sit right, consider reaching out to the team with specific questions before deciding your next step',
+              'If you\'ve had that conversation and still disagree with the findings, send a written request for an IEE',
+              'Consider scheduling a consultation to talk through your options with someone who can look at the full picture with you',
+            ],
+          },
+          cta: {
+            text: 'You don\'t have to figure this out alone. If you\'re sitting with a not eligible decision and something still doesn\'t feel right, that instinct is worth exploring.',
+            buttonText: 'Schedule a Free 15-Minute Consultation',
+            buttonUrl: '/contact?interest=free-consultation',
+          },
+          closing: [
+            'A not eligible finding often leaves families in a gap - their child is clearly struggling, but not to the degree the law requires to qualify for special education services. There are still ways to advocate for your child within the gap, though.',
+            'In upcoming posts, we\'ll cover 504 plans in more depth, what general education supports look like, and how to keep advocating even when the formal special education process isn\'t the right fit.',
+          ],
+        },
+      ],
+    },
+  },
 ];
