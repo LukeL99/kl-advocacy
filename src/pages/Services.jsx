@@ -494,7 +494,7 @@ export default function Services() {
       </Section>
 
       {/* Pricing Guide CTA */}
-      <section className="relative py-16 md:py-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, #C4956A 0%, #d4a87a 50%, #e0c4a0 100%)' }}>
+      <section className="relative py-10 md:py-14 overflow-hidden" style={{ background: 'linear-gradient(135deg, #C4956A 0%, #d4a87a 50%, #e0c4a0 100%)' }}>
         <div className="absolute -top-6 -left-6 w-32 h-32 bg-white/10 rounded-full" />
         <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-white/10 rounded-full" />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -516,13 +516,13 @@ export default function Services() {
           </button>
           <p className="text-white/60 text-sm mt-4 mb-8">Free. No spam, ever.</p>
           <div className="flex items-center justify-center gap-2 flex-wrap">
-            <Heart className="w-3.5 h-3.5 text-white/40 shrink-0" />
-            <p className="font-tagline text-white/40 text-xs">
+            <Heart className="w-3.5 h-3.5 text-white/70 shrink-0" />
+            <p className="font-tagline text-white/70 text-xs">
               Sliding scale pricing is available for families who need it.
             </p>
             <button
               onClick={() => setShowSlidingScaleModal(true)}
-              className="text-white/60 text-xs underline underline-offset-2 hover:text-white transition-colors"
+              className="text-white/80 text-xs underline underline-offset-2 hover:text-white transition-colors"
             >
               Request here
             </button>
