@@ -518,13 +518,13 @@ export default function Services() {
           </button>
           <p className="text-white/60 text-sm mt-4 mb-8">Free. No spam, ever.</p>
           <div className="flex items-center justify-center gap-2 flex-wrap">
-            <Heart className="w-3.5 h-3.5 text-white/70 shrink-0" />
-            <p className="font-tagline text-white/70 text-xs">
+            <Heart className="w-4 h-4 text-white/70 shrink-0" />
+            <p className="font-tagline text-white/70 text-sm">
               Sliding scale pricing is available for families who need it.
             </p>
             <button
               onClick={() => setShowSlidingScaleModal(true)}
-              className="text-white/80 text-xs underline underline-offset-2 hover:text-white transition-colors"
+              className="text-white/80 text-sm underline underline-offset-2 hover:text-white transition-colors"
             >
               Request here
             </button>
