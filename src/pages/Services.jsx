@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser';
 import { Phone, FileText, Users, Package, Download, CheckCircle, X, Sparkles, Heart } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
+import { useContactModal } from '../components/ContactModal';
 
 const services = [
   {
@@ -440,6 +441,7 @@ function SlidingScaleModal({ isOpen, onClose }) {
 export default function Services() {
   const [showPricingModal, setShowPricingModal] = useState(false);
   const [showSlidingScaleModal, setShowSlidingScaleModal] = useState(false);
+  const { openContactModal } = useContactModal();
 
   return (
     <>
@@ -483,7 +485,7 @@ export default function Services() {
                     {service.cta}
                   </button>
                 ) : (
-                  <Button to={`/contact?interest=${service.interest}`} variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full" onClick={() => openContactModal(service.interest)}>
                     {service.cta}
                   </Button>
                 )}
@@ -549,7 +551,7 @@ export default function Services() {
           <p className="text-blue-100 mb-8 max-w-xl mx-auto">
             Every family&apos;s situation is unique. Schedule a free consultation and we&apos;ll figure out the best way I can help.
           </p>
-          <Button to="/contact?interest=free-consultation" variant="white" size="lg">
+          <Button variant="white" size="lg" onClick={() => openContactModal('free-consultation')}>
             Schedule Free Consultation
           </Button>
         </div>

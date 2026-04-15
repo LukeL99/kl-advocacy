@@ -3,10 +3,12 @@ import { ArrowLeft, Calendar, Clock, Tag, CheckCircle, Facebook, Twitter, Mail, 
 import { blogPosts } from '../data/blogPosts';
 import Button from '../components/Button';
 import Section from '../components/Section';
+import { useContactModal } from '../components/ContactModal';
 import Comments from '../components/Comments';
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const { openContactModal } = useContactModal();
   const post = blogPosts.find(p => p.slug === slug);
 
   if (!post) {
@@ -232,13 +234,26 @@ export default function BlogPost() {
                   <p className="text-lg text-text-muted mb-6 leading-relaxed max-w-2xl mx-auto">
                     {section.cta.text}
                   </p>
-                  <Button
-                    to={section.cta.buttonUrl}
-                    size="lg"
-                    className="mb-0"
-                  >
-                    {section.cta.buttonText}
-                  </Button>
+                  {section.cta.buttonUrl?.startsWith('/contact') ? (
+                    <Button
+                      size="lg"
+                      className="mb-0"
+                      onClick={() => {
+                        const params = new URLSearchParams(section.cta.buttonUrl.split('?')[1] || '');
+                        openContactModal(params.get('interest') || '');
+                      }}
+                    >
+                      {section.cta.buttonText}
+                    </Button>
+                  ) : (
+                    <Button
+                      to={section.cta.buttonUrl}
+                      size="lg"
+                      className="mb-0"
+                    >
+                      {section.cta.buttonText}
+                    </Button>
+                  )}
                 </div>
               )}
 

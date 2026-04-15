@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
+import { useContactModal } from '../components/ContactModal';
 
 const faqs = [
   {
@@ -60,6 +61,7 @@ function FAQItem({ question, answer }) {
 }
 
 export default function FAQ() {
+  const { openContactModal } = useContactModal();
   return (
     <>
       <Section bg="secondary">
@@ -81,7 +83,7 @@ export default function FAQ() {
           <p className="text-text-muted mb-8">
             I'm happy to answer any questions about my services or the IEP process.
           </p>
-          <Button to="/contact" size="lg">
+          <Button size="lg" onClick={() => openContactModal()}>
             Get In Touch
           </Button>
         </div>

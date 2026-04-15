@@ -1,8 +1,10 @@
 import { GraduationCap, Award, Heart, Briefcase } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
+import { useContactModal } from '../components/ContactModal';
 
 export default function About() {
+  const { openContactModal } = useContactModal();
   return (
     <>
       <Section bg="secondary">
@@ -110,7 +112,7 @@ export default function About() {
             you the knowledge, confidence, and support to be an effective partner 
             in your child&apos;s education - not an adversary, a partner.&rdquo;
           </blockquote>
-          <Button to="/contact" size="lg">
+          <Button size="lg" onClick={() => openContactModal()}>
             Let&apos;s Work Together
           </Button>
         </div>

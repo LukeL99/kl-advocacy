@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { ContactModalProvider } from './components/ContactModal';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import About from './pages/About';
@@ -24,6 +25,7 @@ function ScrollToTop() {
 function App() {
   return (
     <Router>
+      <ContactModalProvider>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Navbar />
@@ -43,6 +45,7 @@ function App() {
         </main>
         <Footer />
       </div>
+      </ContactModalProvider>
     </Router>
   );
 }

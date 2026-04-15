@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser';
 import { FileText, BookOpen, Shield, Mail, Layers, CheckCircle, Download, Lock, X, Sparkles } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
+import { useContactModal } from '../components/ContactModal';
 
 // EmailJS config — same service as Services page, new template for resource library
 const EMAILJS_SERVICE_ID = 'service_2k6r2lq';
@@ -237,6 +238,7 @@ function SignupModal({ isOpen, onClose }) {
 }
 
 export default function ResourceLibrary() {
+  const { openContactModal } = useContactModal();
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -353,9 +355,9 @@ export default function ResourceLibrary() {
             These resources are a starting point. If you need personalized support, I&apos;m here.
           </p>
           <Button
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeCZBm-Vppz8ReNgpLqQU9xA9kAUPihWj_-2gqSQ1AbtUCrCg/viewform?usp=header"
             variant="white"
             size="lg"
+            onClick={() => openContactModal('free-consultation')}
           >
             Schedule a Free Consultation
           </Button>

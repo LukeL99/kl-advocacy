@@ -1,8 +1,10 @@
 import { Phone, Mail, Shield, Users, FileText, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
+import { useContactModal } from '../components/ContactModal';
 
 export default function Home() {
+  const { openContactModal } = useContactModal();
   return (
     <>
       {/* Hero Section */}
@@ -27,7 +29,7 @@ export default function Home() {
                 <Button to="/services" size="lg">
                   Learn How I Can Help
                 </Button>
-                <Button to="/contact?interest=free-consultation" variant="outline" size="lg">
+                <Button variant="outline" size="lg" onClick={() => openContactModal('free-consultation')}>
                   Free Consultation
                 </Button>
               </div>
@@ -193,7 +195,7 @@ export default function Home() {
             Every family's journey is different. Let's talk about yours and find the best path forward - together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button to="/contact?interest=free-consultation" variant="white" size="lg">
+            <Button variant="white" size="lg" onClick={() => openContactModal('free-consultation')}>
               Schedule Free Consultation
             </Button>
             <Button href="tel:804-420-2273" variant="outline-white" size="lg">

@@ -1,6 +1,7 @@
 import { BookOpen, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
 import Section, { SectionHeader } from '../components/Section';
+import { useContactModal } from '../components/ContactModal';
 
 // Session booking links go to Contact page with parent-education interest
 
@@ -68,6 +69,7 @@ const sessions = [
 ];
 
 export default function ParentEducation() {
+  const { openContactModal } = useContactModal();
   return (
     <>
       <Section bg="secondary">
@@ -97,7 +99,7 @@ export default function ParentEducation() {
               </p>
               <div className="flex items-center justify-between pt-4 border-t border-border-muted">
                 <p className="font-heading text-primary">$65</p>
-                <Button to={`/contact?interest=parent-education&topic=${encodeURIComponent(session.title)}`} variant="outline" size="sm">
+                <Button variant="outline" size="sm" onClick={() => openContactModal('parent-education', `I'm interested in the Parent Education session: ${session.title}`)}>
                   Book This Session
                 </Button>
               </div>
@@ -116,7 +118,7 @@ export default function ParentEducation() {
           <p className="text-text-muted mb-8">
             Have a specific question about your child&apos;s IEP, evaluation, or special education services? I offer custom 30-minute sessions on any topic. Reach out and we&apos;ll figure it out together.
           </p>
-          <Button to="/contact" size="lg">
+          <Button size="lg" onClick={() => openContactModal()}>
             Contact Me
           </Button>
         </div>
