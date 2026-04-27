@@ -13,6 +13,7 @@ export const blogPosts = [
       { title: 'Questions to Ask at Every IEP Meeting', path: '/full-library', gated: true },
       { title: 'IEP Meeting Red Flags Checklist', path: '/full-library', gated: true },
       { title: 'LRE: What It Means and What to Ask', path: '/full-library', gated: true },
+      { title: 'ESY: What Is Extended School Year?', path: '/full-library', gated: true },
       { title: 'Know The Terms: Special Education Glossary', path: '/resources/special-education-glossary.pdf', gated: false },
       { title: 'Accommodations vs Modifications', path: '/resources/accommodations-vs-modifications.pdf', gated: false },
     ],
@@ -614,6 +615,7 @@ export const blogPosts = [
     tags: ['ESY', 'extended school year', 'IEP', 'FAPE', 'summer services'],
     readTime: '5 min read',
     resources: [
+      { title: 'ESY: What Is Extended School Year?', path: '/full-library', gated: true },
       { title: 'Questions to Ask at Every IEP Meeting', path: '/full-library', gated: true },
       { title: 'IEP Meeting Red Flags Checklist', path: '/full-library', gated: true },
       { title: 'Know Your Rights: Procedural Safeguards Summary', path: '/resources/procedural-safeguards-summary.pdf', gated: false },

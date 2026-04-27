@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Lock, Download, FileText, Flag, HelpCircle, BookOpen, X, CheckCircle, MessageSquare } from 'lucide-react';
+import { Lock, Download, FileText, Flag, HelpCircle, BookOpen, Calendar, X, CheckCircle, MessageSquare } from 'lucide-react';
 import Section, { SectionHeader } from '../components/Section';
 import Button from '../components/Button';
 
@@ -237,6 +237,13 @@ const gatedResources = [
     description:
       'A quick reference on Least Restrictive Environment -- the placement spectrum from general ed to more restrictive settings, what drives the decision, and questions to ask your IEP team.',
     filename: 'lre-guide',
+  },
+  {
+    icon: Calendar,
+    title: 'ESY: What Is Extended School Year?',
+    description:
+      'A quick reference on Extended School Year services -- what ESY is, who qualifies, what the IEP team considers, and key things every parent should know before spring IEP meetings.',
+    filename: 'esy-guide',
   },
 ];
 
