@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Confessional - Ready</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0f0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    color: #e8e0d4;
+  }
+
+  .container {
+    text-align: center;
+    padding: 2rem;
+    animation: fade-in 0.8s ease-out;
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Pulsing record indicator */
+  .record-ring {
+    width: min(35vw, 35vh, 160px);
+    height: min(35vw, 35vh, 160px);
+    border-radius: 50%;
+    border: 3px solid rgba(42, 157, 143, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2.5rem;
+    animation: ring-pulse 2s ease-in-out infinite;
+    position: relative;
+  }
+
+  @keyframes ring-pulse {
+    0%, 100% { border-color: rgba(42, 157, 143, 0.3); transform: scale(1); }
+    50% { border-color: rgba(42, 157, 143, 0.7); transform: scale(1.03); }
+  }
+
+  .record-dot {
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #2a9d8f, #1a7a6e);
+    animation: dot-pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(42, 157, 143, 0.3);
+  }
+
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 0.7; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+
+  /* Outer glow ring */
+  .record-ring::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 1px solid rgba(42, 157, 143, 0.15);
+    animation: ring-pulse 2s ease-in-out infinite 0.3s;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 4.5vw, 2.2rem);
+    color: #e8e0d4;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .instruction {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: rgba(232, 224, 212, 0.6);
+    margin-bottom: 0.5rem;
+  }
+
+  .button-hint {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: #c2a478;
+    margin-top: 1.5rem;
+    animation: hint-pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes hint-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* Bottom teal accent */
+  .tile-accent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      #2a9d8f 20%,
+      #40b5a6 50%,
+      #2a9d8f 80%,
+      transparent 100%
+    );
+    opacity: 0.6;
+  }
+
+  /* Crawlstitution logo placeholder */
+  .event-logo {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.3;
+    height: min(6vh, 40px);
+  }
+
+  .event-logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="record-ring">
+      <div class="record-dot"></div>
+    </div>
+    <h1>Ready when you are.</h1>
+    <p class="button-hint">Press the button. Say your piece.</p>
+  </div>
+
+  <div class="tile-accent"></div>
+
+  <!-- Crawlstitution logo - replace src with actual logo -->
+  <div class="event-logo">
+    <img src="crawlstitution-logo.png" alt="The Crawlstitution">
+  </div>
+</body>
+</html>

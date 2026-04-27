@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Confessional - Idle</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0f0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Logo image with shimmer */
+  .logo-wrap {
+    position: relative;
+    width: min(70vw, 70vh);
+    height: min(70vw, 70vh);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .logo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0.9);
+  }
+
+  /* Shimmer overlay */
+  .shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba(194, 169, 120, 0.15) 45%,
+      rgba(194, 169, 120, 0.3) 50%,
+      rgba(194, 169, 120, 0.15) 55%,
+      transparent 70%
+    );
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    40% { left: 150%; }
+    100% { left: 150%; }
+  }
+
+  /* Soft glow pulse behind logo */
+  .glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(75vw, 75vh);
+    height: min(75vw, 75vh);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 150, 136, 0.12) 0%, transparent 70%);
+    animation: glow-pulse 5s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); }
+  }
+
+  /* Floating particles (candle-like) */
+  .particle {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: rgba(194, 169, 120, 0.5);
+    border-radius: 50%;
+    animation: float-up linear infinite;
+  }
+
+  @keyframes float-up {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(-100vh) scale(0.3); opacity: 0; }
+  }
+
+  .particle:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+  .particle:nth-child(2) { left: 25%; animation-duration: 10s; animation-delay: 2s; }
+  .particle:nth-child(3) { left: 40%; animation-duration: 7s; animation-delay: 4s; }
+  .particle:nth-child(4) { left: 55%; animation-duration: 9s; animation-delay: 1s; }
+  .particle:nth-child(5) { left: 70%; animation-duration: 11s; animation-delay: 3s; }
+  .particle:nth-child(6) { left: 85%; animation-duration: 8s; animation-delay: 5s; }
+  .particle:nth-child(7) { left: 15%; animation-duration: 12s; animation-delay: 6s; }
+  .particle:nth-child(8) { left: 60%; animation-duration: 9s; animation-delay: 7s; }
+  /* Crawlstitution logo */
+  .event-logo {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.3;
+    height: min(6vh, 40px);
+  }
+
+  .event-logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+</style>
+</head>
+<body>
+  <!-- Floating particles -->
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+
+  <div class="container">
+    <div class="glow"></div>
+    <div class="logo-wrap">
+      <!-- Replace src with actual logo file path -->
+      <img src="logo.png" alt="The Confessional">
+      <div class="shimmer"></div>
+    </div>
+  </div>
+  <!-- Crawlstitution logo -->
+  <div class="event-logo">
+    <img src="crawlstitution-logo.png" alt="The Crawlstitution">
+  </div>
+</body>
+</html>
