@@ -603,4 +603,87 @@ export const blogPosts = [
       ],
     },
   },
+  {
+    slug: 'extended-school-year-esy',
+    image: '/images/blog-eligibility-meeting.png',
+    title: 'What Is Extended School Year (ESY) and Does Your Child Qualify?',
+    excerpt: "As the school year winds down and summer break approaches, many families with children on IEPs start hearing a new acronym: ESY. Here's what you need to know.",
+    author: 'Karlie, SLP and Educational Advocate at Access Educational Advocacy',
+    date: '2026-04-26',
+    categories: ['Special Education', 'Parent Resources'],
+    tags: ['ESY', 'extended school year', 'IEP', 'FAPE', 'summer services'],
+    readTime: '5 min read',
+    resources: [
+      { title: 'Questions to Ask at Every IEP Meeting', path: '/full-library', gated: true },
+      { title: 'IEP Meeting Red Flags Checklist', path: '/full-library', gated: true },
+      { title: 'Know Your Rights: Procedural Safeguards Summary', path: '/resources/procedural-safeguards-summary.pdf', gated: false },
+      { title: 'Know The Terms: Special Education Glossary', path: '/resources/special-education-glossary.pdf', gated: false },
+    ],
+    content: {
+      intro: [
+        'As the school year winds down and summer break approaches, many families with children on IEPs start hearing a new acronym: ESY. If you\'re not sure what it means - or whether it applies to your child - you\'re not alone. Here\'s what you need to know.',
+      ],
+      sections: [
+        {
+          heading: 'ESY Is Not Summer School',
+          intro: [
+            'Extended School Year services are special education services provided outside of the regular school calendar, most often during the summer. ESY is not the same as general summer school, which any student can attend. ESY is an individualized service written into your child\'s IEP and provided at no cost to your family.',
+            'Under the Individuals with Disabilities Education Act (IDEA), school districts are legally required to provide ESY when the IEP team determines it\'s necessary for your child to receive a Free Appropriate Public Education (FAPE). That\'s a meaningful distinction: ESY isn\'t "just extra support."',
+          ],
+        },
+        {
+          heading: 'What ESY Is Actually For',
+          intro: [
+            'The core question ESY is designed to answer is this: will an extended break from services cause your child to lose skills that are difficult or time-consuming to regain?',
+            'This is often talked about in terms of regression and recoupment - how much skill a child loses over a break, and how long it takes them to get back to where they were once services resume. If that pattern is significant, ESY may be appropriate.',
+            'But regression isn\'t the only consideration. IEP teams may also look at:',
+          ],
+          subsections: [
+            {
+              subheading: 'Factors Beyond Regression',
+              list: [
+                'Whether a child is at a critical point in learning a new skill, and a break could disrupt that progress',
+                'The nature and severity of the child\'s disability and how it affects learning over time',
+                'Whether the child\'s overall rate of progress would be significantly impacted without continued services',
+              ],
+              afterList: [
+                'There\'s no single universal checklist, and eligibility criteria can vary by state. What matters most is the individual child\'s data and needs - not a diagnosis, a label, or assumptions about what kids with a particular disability "typically" need.',
+              ],
+            },
+          ],
+        },
+        {
+          heading: 'How the Decision Is Made',
+          intro: [
+            'ESY is decided by the IEP team, which includes you. The team should look at actual data - progress notes, goal data, therapist observations, and any historical patterns across past breaks - to make this determination.',
+          ],
+          subsections: [
+            {
+              subheading: 'Important Things to Know',
+              list: [
+                'ESY cannot be denied based on cost. Districts cannot factor budget into this decision.',
+                'A child doesn\'t have to have already regressed to qualify. If the data reasonably predicts regression, that\'s enough.',
+                'The decision should be documented in the IEP, including what services will be provided, how often, and what goals they\'re targeting.',
+              ],
+              afterList: [
+                'Final ESY decisions are typically made in the spring, so if your child\'s annual review is coming up, it\'s worth making sure the topic gets addressed.',
+              ],
+            },
+          ],
+        },
+        {
+          heading: 'Not Sure Where Your Child Stands?',
+          intro: [
+            'Navigating ESY - whether you\'re hearing about it for the first time or you\'ve been told your child doesn\'t qualify and something doesn\'t feel right - can be confusing and frustrating. That\'s exactly the kind of situation a special education advocate can help you work through.',
+            'If you think ESY might be appropriate for your child and want to talk through what the data says, what questions to ask, or what your next steps are, I\'d love to connect.',
+          ],
+          cta: {
+            text: 'Schedule a free consultation to talk through your child\'s situation and figure out the right next step.',
+            buttonText: 'Schedule a Free Consultation',
+            buttonUrl: '/contact?interest=free-consultation',
+          },
+        },
+      ],
+    },
+  },
 ];
