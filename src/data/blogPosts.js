@@ -605,7 +605,7 @@ export const blogPosts = [
   },
   {
     slug: 'extended-school-year-esy',
-    image: '/images/blog-eligibility-meeting.png',
+    image: '/images/blog-esy.png',
     title: 'What Is Extended School Year (ESY) and Does Your Child Qualify?',
     excerpt: "As the school year winds down and summer break approaches, many families with children on IEPs start hearing a new acronym: ESY. Here's what you need to know.",
     author: 'Karlie, SLP and Educational Advocate at Access Educational Advocacy',
