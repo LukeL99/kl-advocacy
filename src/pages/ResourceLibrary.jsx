@@ -322,9 +322,22 @@ export default function ResourceLibrary() {
               <h3 className="font-heading text-xl text-white mb-3">
                 Unlock the Full Library
               </h3>
-              <p className="text-white/85 text-sm mb-6 leading-relaxed flex-grow">
+              <p className="text-white/85 text-sm mb-4 leading-relaxed">
                 Get access to our growing collection of guides, checklists, and tools — delivered straight to your inbox.
               </p>
+              <div className="text-left mb-4 space-y-1.5">
+                <p className="text-white/60 text-xs font-medium uppercase tracking-wider mb-2">Inside the library:</p>
+                <p className="text-white/80 text-xs flex items-center gap-1.5">
+                  <Lock className="w-3 h-3 text-white/50 shrink-0" /> Eligibility Meeting Questions
+                </p>
+                <p className="text-white/80 text-xs flex items-center gap-1.5">
+                  <Lock className="w-3 h-3 text-white/50 shrink-0" /> IEP Meeting Red Flags Checklist
+                </p>
+                <p className="text-white/80 text-xs flex items-center gap-1.5">
+                  <Lock className="w-3 h-3 text-white/50 shrink-0" /> ESY: What Is Extended School Year?
+                </p>
+                <p className="text-white/55 text-xs italic pl-4.5">...and 5 more guides</p>
+              </div>
               <div className="pt-4 border-t border-white/20 space-y-2">
                 <button
                   onClick={() => setShowModal(true)}
