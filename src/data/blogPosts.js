@@ -688,4 +688,63 @@ export const blogPosts = [
       ],
     },
   },
+  {
+    slug: 'teacher-appreciation-week-2026',
+    image: '/images/blog-teacher-appreciation.png',
+    title: 'To the Teachers Who Show Up for Every Student: Thank You',
+    excerpt: "Teacher Appreciation Week is a chance to say something more specific than 'thanks for everything.' We want to thank the teachers who show up for every student -- especially the ones who require a little more.",
+    author: 'Karlie, SLP and Educational Advocate at Access Educational Advocacy',
+    date: '2026-05-07',
+    categories: ['Community', 'Special Education'],
+    tags: ['teacher appreciation', 'IEP', 'special education', 'teachers', 'inclusion'],
+    readTime: '4 min read',
+    content: {
+      intro: [
+        'Every May, we pause to recognize the people who spend their days shaping the next generation - grading papers late into the night, learning each student\'s needs, and somehow managing to be a teacher, counselor, cheerleader, and behavior strategist all at once. At Access Educational Advocacy, we want to use this week to say something a little more specific than "thanks for everything."',
+        'We want to thank the teachers who show up for every student. Especially the ones who require a little more.',
+      ],
+      sections: [
+        {
+          heading: 'The Teachers in the IEP Room',
+          intro: [
+            'If your child has an IEP, you know that making it work takes more than a document. It takes a teacher who reads it, follows through on accommodations, and treats your kid like a whole person and not just a list of modifications.',
+            'It happens because of a team - and at the center of that team, day in and day out, is the classroom teacher.',
+            'General education teachers in inclusion classrooms embrace their students with IEPs while also being expected to implement accommodations, collaborate with specialists, participate in IEP meetings, communicate with families, and still teach 25 other kids. Special education teachers carry their own weight by coordinating services, writing goals, managing compliance timelines, and often serving as the emotional anchor for students who need one.',
+            'These educators don\'t always get enough credit for how much they hold.',
+          ],
+        },
+        {
+          heading: 'What We\'ve Learned Watching Teachers at Work',
+          intro: [
+            'Most teachers genuinely want what\'s best for your child. They want the right supports in place. They want to see students succeed. They\'re often working within systems that are underfunded, overstretched, and bureaucratically complex...and they\'re doing it anyway.',
+            'When families and educators are working together, really working together, that\'s when we see the best outcomes for kids. Not because everyone agrees on everything, but because everyone at the table is genuinely trying.',
+          ],
+        },
+        {
+          heading: 'When It Feels Complicated',
+          intro: [
+            'We also want to acknowledge something else: the family-school relationship isn\'t always easy.',
+            'When you\'re fighting for your child to receive the services they\'re entitled to, it can feel like teachers and administrators are on the opposite side of the table. Miscommunication happens. Meetings feel rushed. You leave without answers.',
+            'If that\'s been your experience, you\'re not alone and that\'s exactly why AEA exists.',
+            'Advocacy isn\'t about being adversarial with teachers. It\'s about making sure the system is working the way it\'s supposed to, so that the teachers who want to help your child actually can. When students have the right evaluations, the right goals, and the right supports documented in their IEP, it sets teachers up to succeed too.',
+          ],
+        },
+        {
+          heading: 'A Note to Families This Week',
+          intro: [
+            'If your child has a teacher who has gone above and beyond, who read the IEP carefully, who noticed when something wasn\'t working, who sent you a kind email at just the right time - tell them. It matters more than you might think.',
+            'And if you\'re in a harder season right now, navigating disagreements or trying to understand your child\'s rights, know that reaching out for support doesn\'t mean giving up on the relationship with your child\'s school. It means building the foundation for a better one.',
+          ],
+          cta: {
+            text: 'Access Educational Advocacy supports families as they navigate the special education and IEP process. If you have questions about your child\'s evaluations, services, or rights under IDEA, we\'re here to help.',
+            buttonText: 'Schedule a Consultation',
+            buttonUrl: '/contact?interest=free-consultation',
+          },
+          closing: [
+            'Happy Teacher Appreciation Week to every educator pouring themselves into this work. We see you.',
+          ],
+        },
+      ],
+    },
+  },
 ];
