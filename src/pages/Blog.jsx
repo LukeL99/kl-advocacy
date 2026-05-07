@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, Tag } from 'lucide-react';
+import { Calendar, Clock, Tag, Search } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
 import Section from '../components/Section';
 import Button from '../components/Button';
@@ -11,19 +11,34 @@ const allCategories = [...new Set(blogPosts.flatMap(p => p.categories))].sort();
 
 export default function Blog() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
   const { openContactModal } = useContactModal();
 
   // Sort posts by date (newest first)
   const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  // Featured post is the latest
-  const featuredPost = sortedPosts[0];
-  const remainingPosts = sortedPosts.slice(1);
+  // Search + filter logic
+  const isSearching = searchQuery.trim().length > 0;
+  const query = searchQuery.toLowerCase().trim();
 
-  // Filter remaining posts
-  const filteredPosts = activeFilter === 'All'
-    ? remainingPosts
-    : remainingPosts.filter(p => p.categories.includes(activeFilter));
+  const matchesSearch = (post) => {
+    if (!isSearching) return true;
+    return (
+      post.title.toLowerCase().includes(query) ||
+      post.excerpt.toLowerCase().includes(query) ||
+      post.tags?.some(t => t.toLowerCase().includes(query)) ||
+      post.categories.some(c => c.toLowerCase().includes(query))
+    );
+  };
+
+  // When searching, search ALL posts (no featured split). When not searching, split featured + grid.
+  const featuredPost = isSearching ? null : sortedPosts[0];
+  const remainingPosts = isSearching ? sortedPosts : sortedPosts.slice(1);
+
+  // Apply category filter + search
+  const filteredPosts = remainingPosts
+    .filter(p => activeFilter === 'All' || p.categories.includes(activeFilter))
+    .filter(matchesSearch);
 
   const formatDate = (dateStr) =>
     new Date(dateStr).toLocaleDateString('en-US', {
@@ -97,6 +112,20 @@ export default function Blog() {
               </article>
             </Link>
           )}
+
+          {/* Search Bar */}
+          <div className="max-w-md mx-auto mb-6">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search posts by keyword..."
+                className="w-full pl-11 pr-4 py-2.5 rounded-full border border-border bg-bg-secondary text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm"
+              />
+            </div>
+          </div>
 
           {/* Category Filters */}
           <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
@@ -185,9 +214,11 @@ export default function Blog() {
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-text-muted text-lg">No posts in this category yet.</p>
+              <p className="text-text-muted text-lg">
+                {isSearching ? `No posts matching "${searchQuery}".` : 'No posts in this category yet.'}
+              </p>
               <button
-                onClick={() => setActiveFilter('All')}
+                onClick={() => { setActiveFilter('All'); setSearchQuery(''); }}
                 className="mt-4 text-primary font-medium hover:text-primary-dark transition-colors"
               >
                 View all posts
